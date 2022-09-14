@@ -1,4 +1,4 @@
-package avaliacaotecnicapoo;
+package desafiotecnicopoo;
 
 public class Funcionario {
 

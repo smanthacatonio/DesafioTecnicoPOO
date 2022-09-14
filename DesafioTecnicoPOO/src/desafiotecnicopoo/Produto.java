@@ -1,9 +1,39 @@
-package avaliacaotecnicapoo;
+package desafiotecnicopoo;
 
 public class Produto {
-    
-    private int codigo;
+
+    private TipoDeProduto tipoDeProduto;
     private double preco;
-    
-    //Bebidas, Petiscos, Carnes, Aves, Massas e Sobremesas; 
+    private int codigo;
+
+    public Produto(TipoDeProduto tipoDeProduto, float preço, int codigo) {
+        this.tipoDeProduto = tipoDeProduto;
+        this.preco = preco;
+        this.codigo = codigo;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public TipoDeProduto getTipoDeProduto() {
+        return tipoDeProduto;
+    }
+
+    public void setTipoDeProduto(TipoDeProduto tipoDeProduto) {
+        this.tipoDeProduto = tipoDeProduto;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
 }

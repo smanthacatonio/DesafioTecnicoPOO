@@ -6,13 +6,16 @@ import java.util.Scanner;
 public class Caixa {
 //    Scanner scan = new Scanner(System.in);
 //    int quantidade;
+    
+
+    public Caixa() {
+    }
+    
 
     public void abrirConta(List<Conta> contas) {
         Conta conta = new Conta();
-        contas.add(new Conta());
+        contas.add(conta);
     }
-
-//calcularConta
 //calcularComissao
 //percentualComissao
 //ocupacaoDasMesas;

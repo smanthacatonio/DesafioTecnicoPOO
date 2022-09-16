@@ -6,7 +6,7 @@ public class Produto {
     private double preco;
     private int codigo;
 
-    public Produto(TipoDeProduto tipoDeProduto, float preço, int codigo) {
+    public Produto(TipoDeProduto tipoDeProduto, double preco, int codigo) {
         this.tipoDeProduto = tipoDeProduto;
         this.preco = preco;
         this.codigo = codigo;

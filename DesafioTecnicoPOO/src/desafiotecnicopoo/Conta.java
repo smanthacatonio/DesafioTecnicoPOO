@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Conta {
 
     private int numeroDaMesa;
-    private String nomeDoGarcom;
+    private int matriculaDoGarcom;
     private LocalDate data = LocalDate.now() ;
     private LocalTime hora = LocalTime.now();
     private List<ItemDaConta> itensDaConta = new ArrayList<>();
@@ -20,8 +20,8 @@ public class Conta {
 
         System.out.println("Digite o número da mesa: ");
         numeroDaMesa = scan.nextInt();
-        System.out.println("Digite o nome do Garcom: ");
-        nomeDoGarcom = scan.nextLine();
+        System.out.println("Digite a matricula do Garcom: ");
+        matriculaDoGarcom = scan.nextInt();
         valorConta = 0;
     }
     
@@ -33,12 +33,12 @@ public class Conta {
         this.numeroDaMesa = numeroDaMesa;
     }
 
-    public String getNomeDoGarcom() {
-        return nomeDoGarcom;
+    public int getMatriculaDoGarcom() {
+        return matriculaDoGarcom;
     }
 
-    public void setNomeDoGarcom(String nomeDoGarcom) {
-        this.nomeDoGarcom = nomeDoGarcom;
+    public void setMatriculaDoGarcom(int matriculaDoGarcom) {
+        this.matriculaDoGarcom = matriculaDoGarcom;
     }
 
     public LocalDate getData() {
@@ -78,7 +78,7 @@ public class Conta {
     }
     
     public void calcularValorConta(double valorConta){
-        this.valorConta += valorConta;
+        this.valorConta = this.valorConta + valorConta;
     }
 
 }

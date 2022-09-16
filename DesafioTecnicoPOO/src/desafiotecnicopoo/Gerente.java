@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class Gerente {
 
+    Scanner scan = new Scanner(System.in);
+
     private String nome;
     private String endereco;
     private String telefone;
     private int cpf;
 
     public Gerente() {
-        Scanner scan = new Scanner(System.in);
 
         System.out.println("Digite o nome do Gerente: ");
         nome = scan.nextLine();
@@ -60,8 +61,20 @@ public class Gerente {
     }
 
     public void cadastrarGarcom(List<Garcom> garcons) {
+        
+        System.out.println("Digite o nome do Garcom: ");
+        String nome  = scan.nextLine();
+        System.out.println("Digite o endereco: ");
+        String endereco = scan.nextLine();
+        System.out.println("Digite o telefone: ");
+        String telefone = scan.nextLine();
+        System.out.println("Digite a identidade: ");
+        int identidade = scan.nextInt();
+        System.out.println("Digite a matricula: ");
+        int matricula = scan.nextInt();
+        
         Garcom garcom = new Garcom();
-        garcons.add(new Garcom());
+        garcons.add(garcom);
         //return garcom
     }
 }

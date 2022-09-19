@@ -7,61 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Garcom {
-
+public class Garcom extends Funcionario {
     Scanner scan = new Scanner(System.in);
 
-    private String nome;
-    private String endereco;
-    private String telefone;
     private int identidade;
     private int matricula;
     
 
     public Garcom(String nome, String endereco, String telefone, int identidade, int matricula) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
+        super(nome, endereco, telefone);
         this.identidade = identidade;
         this.matricula = matricula;
     }
     
     public Garcom() {
-
-//        System.out.println("Digite o nome do Garcom: ");
-//        nome = scan.nextLine();
-//        System.out.println("Digite o endereco: ");
-//        endereco = scan.nextLine();
-//        System.out.println("Digite o telefone: ");
-//        telefone = scan.nextLine();
-//        System.out.println("Digite a identidade: ");
-//        identidade = scan.nextInt();
-//        System.out.println("Digite a matricula: ");
-//        matricula = scan.nextInt();
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public int getIdentidade() {
@@ -78,10 +37,6 @@ public class Garcom {
 
     public void setMatricula(int matricula) {
         this.matricula = matricula;
-    }
-
-    public void imprimeDadosGarcom() {
-        System.out.println("Nome: " + nome + ";  Endereço: " + endereco + "; Telefone: " + telefone + "; Identidade: " + identidade + "; Matrícula: " + matricula);
     }
 
     //Conta relativa à mesa
@@ -125,6 +80,8 @@ public class Garcom {
                     System.out.println("Produto não cadastrado. Tente novamente.");
                     realizarPedido(contas, produtos);
                 }
+            } else {
+                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
             }
         }
     }
@@ -155,6 +112,8 @@ public class Garcom {
                 } else {
                     System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
                 }
+            } else {
+                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
             }
         }
     }
@@ -183,6 +142,8 @@ public class Garcom {
                 }
                 
                 System.out.println(" ---- Valor total da conta: " + contas.get(i).getValorConta() + " ---- ");
+            } else {
+                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
             }
         }
     }

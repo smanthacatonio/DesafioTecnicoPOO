@@ -3,49 +3,18 @@ package desafiotecnicopoo;
 import java.util.List;
 import java.util.Scanner;
 
-public class Gerente {
+public class Gerente extends Funcionario {
 
     Scanner scan = new Scanner(System.in);
 
-    private String nome;
-    private String endereco;
-    private String telefone;
     private int cpf;
 
+    public Gerente(String nome, String endereco, String telefone, int cpf) {
+        super(nome, endereco, telefone);
+        this.cpf = cpf;
+    }
     public Gerente() {
 
-        System.out.println("Digite o nome do Gerente: ");
-        nome = scan.nextLine();
-        System.out.println("Digite o endereco: ");
-        endereco = scan.nextLine();
-        System.out.println("Digite o telefone: ");
-        telefone = scan.nextLine();
-        System.out.println("Digite o CPF: ");
-        cpf = scan.nextInt();
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public int getCpf() {
@@ -56,14 +25,10 @@ public class Gerente {
         this.cpf = cpf;
     }
 
-    public void imprimeDadosGerente() {
-        System.out.println("Nome: " + nome + ";  Endereço: " + endereco + "; Telefone: " + telefone + "; CPF: " + cpf);
-    }
-
     public void cadastrarGarcom(List<Garcom> garcons) {
-        
-        System.out.println("Digite o nome do Garcom: ");
-        String nome  = scan.nextLine();
+
+        System.out.println("Digite o nome do garçom: ");
+        String nome = scan.nextLine();
         System.out.println("Digite o endereco: ");
         String endereco = scan.nextLine();
         System.out.println("Digite o telefone: ");
@@ -72,9 +37,18 @@ public class Gerente {
         int identidade = scan.nextInt();
         System.out.println("Digite a matricula: ");
         int matricula = scan.nextInt();
-        
-        Garcom garcom = new Garcom();
+
+        Garcom garcom = new Garcom(nome, endereco, telefone, identidade, matricula);
         garcons.add(garcom);
         //return garcom
+    }
+
+    public void imprimeDadosGarcom(List<Garcom> garcons) {
+
+        for (int i = 0; i < garcons.size(); i++) {
+            System.out.println("Nome: " + garcons.get(i).getNome() + ";  Endereço: " + garcons.get(i).getEndereco() +
+                    "; Telefone: " + garcons.get(i).getTelefone() + "; Identidade: " + garcons.get(i).getIdentidade() +
+                    "; Matrícula: " + garcons.get(i).getMatricula());
+        }
     }
 }

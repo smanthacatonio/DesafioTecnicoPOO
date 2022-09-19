@@ -17,18 +17,24 @@ public class AvaliacaoTecnicaPOO {
         produtos.add(new Produto(TipoDeProduto.SOBREMESAS, 15, 006));
 
         List<Garcom> garcons = new ArrayList<>();
-        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 01));
-        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 02));
-        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 02));
+//        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 01));
+//        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 02));
+//        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 02));
 
         List<Conta> contas = new ArrayList<>();
 
+        List<Gerente> gerentes = new ArrayList<>();
+//        gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
+
         Caixa caixa = new Caixa();
 
-        menuFuncao(garcons, contas, produtos, caixa);
+        Proprietario proprietario = new Proprietario();
+
+        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
     }
 
-    public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos, Caixa caixa) {
+    public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos,
+                                  Caixa caixa, List<Gerente> gerentes, Proprietario proprietario) {
         int opcao = 1;
 
         while (opcao != 0) {
@@ -56,11 +62,11 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 3:
-                    menuGerente();
+                    menuGerente(gerentes, garcons);
                     break;
 
                 case 4:
-                    menuProprietario();
+                    menuProprietario(proprietario, gerentes);
                     break;
 
                 default:
@@ -81,6 +87,8 @@ public class AvaliacaoTecnicaPOO {
         for (int i = 0; i < garcons.size(); i++) {
             if (garcons.get(i).getMatricula() == matricula) {
                 garcom = garcons.get(i);
+            } else {
+                System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
             }
         }
 
@@ -102,14 +110,17 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
+                    System.out.println(" ..... Realizar Pedido ..... ");
                     garcom.realizarPedido(contas, produtos);
                     break;
 
                 case 2:
+                    System.out.println(" ..... Cancelar Conta ..... ");
                     garcom.cancelarConta(contas);
                     break;
 
                 case 3:
+                    System.out.println(" ..... Fechar Conta ..... ");
                     garcom.fecharConta(contas);
                     break;
 
@@ -142,14 +153,17 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
+                    System.out.println(" ..... Abrir Conta ..... ");
                     caixa.abrirConta(contas);
                     break;
 
                 case 2:
+                    System.out.println(" ..... Calcular Comissão ..... ");
 
                     break;
 
                 case 3:
+                    System.out.println(" ..... Ocupação das mesas ..... ");
 
                     break;
 
@@ -159,9 +173,20 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuGerente() {
-
+    public static void menuGerente(List<Gerente> gerentes, List<Garcom> garcons) {
         int opcao = 1;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Digite o CPF: ");
+        int cpf = scan.nextInt();
+
+        Gerente gerente = new Gerente();
+
+        for (int i = 0; i < gerentes.size(); i++) {
+            if (gerentes.get(i).getCpf() == cpf){
+                gerente = gerentes.get(i);
+            }
+        }
 
         while (opcao != 0) {
 
@@ -170,7 +195,10 @@ public class AvaliacaoTecnicaPOO {
             System.out.println("1. Cadastrar garçom");
             System.out.println("2. Calcular comissão");
             System.out.println("3. Ocupação das mesas");
+            System.out.println("4. Imprimir lista de garçons");
             System.out.println("0. Sair");
+
+            opcao = scan.nextInt();
 
             switch (opcao) {
 
@@ -179,14 +207,22 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
-//                    gerente.cadastrarGarcom(garcons);
+                    System.out.println(" ..... Cadastrar Garçom ..... ");
+                    gerente.cadastrarGarcom(garcons);
                     break;
 
                 case 2:
+                    System.out.println(" ..... Calcular Comissão ..... ");
 
                     break;
 
                 case 3:
+
+                    break;
+
+                case 4:
+                    System.out.println(" ..... Lista Garçons ..... ");
+                    gerente.imprimeDadosGarcom(garcons);
 
                     break;
 
@@ -196,18 +232,19 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuProprietario() {
-
+    public static void menuProprietario(Proprietario proprietario, List<Gerente> gerentes) {
         int opcao = 1;
+        Scanner scan = new Scanner(System.in);
 
         while (opcao != 0) {
 
             System.out.println(" ----- MENU PROPRIETÁRIO ----- ");
             System.out.println("Escolha a opção desejada");
             System.out.println("1. Cadastrar gerente");
-            System.out.println("2. ");
+            System.out.println("2. Imprimir lista de gerentes");
             System.out.println("3. ");
             System.out.println("0. Sair");
+            opcao = scan.nextInt();
 
             switch (opcao) {
 
@@ -216,11 +253,13 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
-
+                    System.out.println(" ..... Cadastrar Gerente ..... ");
+                    proprietario.cadastrarGerente(gerentes);
                     break;
 
                 case 2:
-
+                    System.out.println(" ..... Lista Gerentes ..... ");
+                    proprietario.imprimeDadosGerente(gerentes);
                     break;
 
                 case 3:

@@ -20,7 +20,7 @@ public class Comissao {
         System.out.println("Digite a matricula do garcom");
         int matricula = scan.nextInt();
 
-        for (int i = 0; i < garcons.size(); i++){
+        for (int i = 0; i < contas.size(); i++){
             if (contas.get(i).getMatriculaDoGarcom() == matricula) {
                 comissao = percentual * contas.get(i).getValorConta();
             }

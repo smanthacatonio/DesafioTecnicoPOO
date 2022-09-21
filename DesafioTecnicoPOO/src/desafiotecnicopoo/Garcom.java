@@ -74,14 +74,14 @@ public class Garcom extends Funcionario {
                 if (produto != null) {
                     ItemDaConta itemDaConta = new ItemDaConta(produto, quantidade);
                     contas.get(i).adicionarItemDaConta(itemDaConta);
-                    double valor = itensDaConta.get(i).getProduto().getPreco() * quantidade;
+                    double valor = produto.getPreco() * quantidade;
                     contas.get(i).calcularValorConta(valor);
                 } else {
                     System.out.println("Produto não cadastrado. Tente novamente.");
                     realizarPedido(contas, produtos);
                 }
             } else {
-                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
+//                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
             }
         }
     }

@@ -30,11 +30,13 @@ public class AvaliacaoTecnicaPOO {
 
         Proprietario proprietario = new Proprietario();
 
-        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
+        Comissao comissao = new Comissao();
+
+        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario, comissao);
     }
 
     public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos,
-                                  Caixa caixa, List<Gerente> gerentes, Proprietario proprietario) {
+                                  Caixa caixa, List<Gerente> gerentes, Proprietario proprietario, Comissao comissao) {
         int opcao = 1;
 
         while (opcao != 0) {
@@ -62,7 +64,7 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 3:
-                    menuGerente(gerentes, garcons);
+                    menuGerente(gerentes, garcons, comissao, contas);
                     break;
 
                 case 4:
@@ -173,7 +175,7 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuGerente(List<Gerente> gerentes, List<Garcom> garcons) {
+    public static void menuGerente(List<Gerente> gerentes, List<Garcom> garcons, Comissao comissao, List<Conta> contas) {
         int opcao = 1;
         Scanner scan = new Scanner(System.in);
 
@@ -213,7 +215,7 @@ public class AvaliacaoTecnicaPOO {
 
                 case 2:
                     System.out.println(" ..... Calcular Comissão ..... ");
-
+                    comissao.calcularComissao(garcons, contas);
                     break;
 
                 case 3:
@@ -242,7 +244,7 @@ public class AvaliacaoTecnicaPOO {
             System.out.println("Escolha a opção desejada");
             System.out.println("1. Cadastrar gerente");
             System.out.println("2. Imprimir lista de gerentes");
-            System.out.println("3. ");
+            System.out.println("3. Calcular comissão");
             System.out.println("0. Sair");
             opcao = scan.nextInt();
 

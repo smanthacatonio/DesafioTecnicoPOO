@@ -40,7 +40,6 @@ public class Gerente extends Funcionario {
 
         Garcom garcom = new Garcom(nome, endereco, telefone, identidade, matricula);
         garcons.add(garcom);
-        //return garcom
     }
 
     public void imprimeDadosGarcom(List<Garcom> garcons) {

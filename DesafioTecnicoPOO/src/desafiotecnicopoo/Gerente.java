@@ -50,4 +50,26 @@ public class Gerente extends Funcionario {
                     "; Matrícula: " + garcons.get(i).getMatricula());
         }
     }
+
+    public void calcularComissao(List<Conta> contas) {
+
+        double percentualComissao;
+        double valorVendidoNaSemana = 0;
+
+        System.out.println("Digite o valor do percentual da comissão dessa semana.");
+        percentualComissao = scan.nextDouble();
+
+        System.out.println("Digite a matricula do garcom");
+        int matricula = scan.nextInt();
+
+        for (int i = 0; i < contas.size(); i++){
+            if (contas.get(i).getMatriculaDoGarcom() == matricula) {
+                valorVendidoNaSemana = valorVendidoNaSemana + contas.get(i).getValorConta();
+            }
+        }
+
+        double comissao = valorVendidoNaSemana * percentualComissao/100;
+        System.out.println("O valor da comissão dessa semana será de: " + comissao);
+
+    }
 }

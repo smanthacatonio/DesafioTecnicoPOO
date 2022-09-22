@@ -24,7 +24,16 @@ public class Conta {
         matriculaDoGarcom = scan.nextInt();
         valorConta = 0;
     }
-    
+
+    public Conta(int numeroDaMesa, int matriculaDoGarcom, LocalDate data, LocalTime hora, List<ItemDaConta> itensDaConta, double valorConta) {
+        this.numeroDaMesa = numeroDaMesa;
+        this.matriculaDoGarcom = matriculaDoGarcom;
+        this.data = data;
+        this.hora = hora;
+        this.itensDaConta = itensDaConta;
+        this.valorConta = valorConta;
+    }
+
     public int getNumeroDaMesa() {
         return numeroDaMesa;
     }

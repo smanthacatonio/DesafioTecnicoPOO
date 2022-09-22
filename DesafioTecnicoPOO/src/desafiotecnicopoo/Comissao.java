@@ -1,33 +1,50 @@
 package desafiotecnicopoo;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Comissao {
-    Scanner scan = new Scanner(System.in);
 
-    double comissao;
-    double percentual;
-
-    public Comissao() {
-    }
-
-
-    public double calcularComissao(List<Garcom> garcons, List<Conta> contas) {
-        System.out.println("Digite o valor do percentual da comissão dessa semana. (Ex de formato: 0.10)");
-        percentual = scan.nextDouble();
-
-        System.out.println("Digite a matricula do garcom");
-        int matricula = scan.nextInt();
-
-        for (int i = 0; i < contas.size(); i++){
-            if (contas.get(i).getMatriculaDoGarcom() == matricula) {
-                comissao = percentual * contas.get(i).getValorConta();
-            }
-            comissao += comissao;
-        }
-        System.out.println("O valor da comissão dessa semana será de: " + comissao);
-        return comissao;
-    }
+//    private double matriculaDoGarcom;
+//    private double percentual;
+//    private List<Conta> contas = new ArrayList<>();
+//    private double valorPorGarcom;
+//
+//    public Comissao() {
+//    }
+//
+//    public Comissao(double matriculaDoGarcom, double percentual, List<Conta> contas) {
+//        this.matriculaDoGarcom = matriculaDoGarcom;
+//        this.percentual = percentual;
+//        this.contas = contas;
+//    }
+//
+//    public double getMatriculaDoGarcom() {
+//        return matriculaDoGarcom;
+//    }
+//
+//    public void setMatriculaDoGarcom(double matriculaDoGarcom) {
+//        this.matriculaDoGarcom = matriculaDoGarcom;
+//    }
+//
+//    public double getPercentual() {
+//        return percentual;
+//    }
+//
+//    public void setPercentual(double percentual) {
+//        this.percentual = percentual;
+//    }
+//
+//    public List<Conta> getContas() {
+//        return contas;
+//    }
+//
+//    public void setContas(List<Conta> contas) {
+//        this.contas = contas;
+//    }
+//
+//    public void calcularValorPorGarcom(double valorPorGarcom){
+//        this.valorPorGarcom = this.valorPorGarcom + valorPorGarcom ;
+//    }
 
 }

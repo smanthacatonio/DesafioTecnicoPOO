@@ -1,5 +1,7 @@
 package desafiotecnicopoo;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,14 +19,24 @@ public class AvaliacaoTecnicaPOO {
         produtos.add(new Produto(TipoDeProduto.SOBREMESAS, 15, 006));
 
         List<Garcom> garcons = new ArrayList<>();
-//        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 01));
+        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 01));
 //        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 02));
 //        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 02));
 
-        List<Conta> contas = new ArrayList<>();
-
         List<Gerente> gerentes = new ArrayList<>();
-//        gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
+        gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
+
+        List<Conta> contas = new ArrayList<>();
+        contas.add(new Conta(01, 01, 2022-09-22, "13:35:15",
+                "Bebidas", 5.20));
+
+//        List<ItemDaConta> itensDaConta = new ArrayList<>();
+//        itensDaConta.add(new ItemDaConta("Bebidas", 01));
+//        itensDaConta.add(new ItemDaConta("Petiscos", 01));
+//        itensDaConta.add(new ItemDaConta("Carnes", 01));
+//        itensDaConta.add(new ItemDaConta("Aves", 01));
+
+
 
         Caixa caixa = new Caixa();
 
@@ -215,7 +227,7 @@ public class AvaliacaoTecnicaPOO {
 
                 case 2:
                     System.out.println(" ..... Calcular Comissão ..... ");
-                    comissao.calcularComissao(garcons, contas);
+                    gerente.calcularComissao(contas);
                     break;
 
                 case 3:

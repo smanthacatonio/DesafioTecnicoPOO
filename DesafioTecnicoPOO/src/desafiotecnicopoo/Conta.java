@@ -25,7 +25,8 @@ public class Conta {
         valorConta = 0;
     }
 
-    public Conta(int numeroDaMesa, int matriculaDoGarcom, LocalDate data, LocalTime hora, List<ItemDaConta> itensDaConta, double valorConta) {
+    public Conta(int numeroDaMesa, int matriculaDoGarcom, LocalDate data, LocalTime hora,
+                 List<ItemDaConta> itensDaConta, double valorConta) {
         this.numeroDaMesa = numeroDaMesa;
         this.matriculaDoGarcom = matriculaDoGarcom;
         this.data = data;

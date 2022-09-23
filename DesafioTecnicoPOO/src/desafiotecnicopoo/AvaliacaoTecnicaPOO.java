@@ -26,16 +26,16 @@ public class AvaliacaoTecnicaPOO {
         List<Gerente> gerentes = new ArrayList<>();
         gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
 
+
         List<Conta> contas = new ArrayList<>();
-        contas.add(new Conta(01, 01, 2022-09-22, "13:35:15",
-                "Bebidas", 5.20));
-
-//        List<ItemDaConta> itensDaConta = new ArrayList<>();
-//        itensDaConta.add(new ItemDaConta("Bebidas", 01));
-//        itensDaConta.add(new ItemDaConta("Petiscos", 01));
-//        itensDaConta.add(new ItemDaConta("Carnes", 01));
-//        itensDaConta.add(new ItemDaConta("Aves", 01));
-
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9,19),
+                LocalTime.of(12,00), new ArrayList(), 15));
+        contas.add(new Conta(01, 01, LocalDate.of(2022,9,20),
+                LocalTime.of(13,55),new ArrayList(), 5.20));
+        contas.add(new Conta(02, 01, LocalDate.of(2022, 9, 21),
+                LocalTime.of(13, 15),new ArrayList(), 45.65));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 22),
+                LocalTime.of(14, 05),new ArrayList(), 25.15));
 
 
         Caixa caixa = new Caixa();

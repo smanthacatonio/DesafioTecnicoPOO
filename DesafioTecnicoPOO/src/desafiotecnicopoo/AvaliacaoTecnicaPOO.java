@@ -42,13 +42,11 @@ public class AvaliacaoTecnicaPOO {
 
         Proprietario proprietario = new Proprietario();
 
-        Comissao comissao = new Comissao();
-
-        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario, comissao);
+        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
     }
 
     public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos,
-                                  Caixa caixa, List<Gerente> gerentes, Proprietario proprietario, Comissao comissao) {
+                                  Caixa caixa, List<Gerente> gerentes, Proprietario proprietario) {
         int opcao = 1;
 
         while (opcao != 0) {
@@ -76,7 +74,7 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 3:
-                    menuGerente(gerentes, garcons, comissao, contas);
+                    menuGerente(gerentes, garcons, contas);
                     break;
 
                 case 4:
@@ -187,7 +185,7 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuGerente(List<Gerente> gerentes, List<Garcom> garcons, Comissao comissao, List<Conta> contas) {
+    public static void menuGerente(List<Gerente> gerentes, List<Garcom> garcons, List<Conta> contas) {
         int opcao = 1;
         Scanner scan = new Scanner(System.in);
 

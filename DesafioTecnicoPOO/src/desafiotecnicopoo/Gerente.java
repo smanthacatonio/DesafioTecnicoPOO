@@ -56,34 +56,31 @@ public class Gerente extends Funcionario {
 
         double percentualComissao;
         double valorVendidoNaSemana = 0;
-        int diaInicio;
-        int mesInicio;
-        int diaFinal;
-        int mesFinal;
 
         System.out.println("Digite o dia de início da semana");
-        diaInicio = scan.nextInt();
+        int diaInicio = scan.nextInt();
         System.out.println("Digite o mês de início da semana");
-        mesInicio = scan.nextInt();
+        int mesInicio = scan.nextInt();
         System.out.println("Digite o dia de final da semana");
-        diaFinal = scan.nextInt();
+        int diaFinal = scan.nextInt();
         System.out.println("Digite o mês de final da semana");
-        mesFinal = scan.nextInt();
+        int mesFinal = scan.nextInt();
+
         System.out.println("Digite o valor do percentual da comissão dessa semana.");
         percentualComissao = scan.nextDouble();
         System.out.println("Digite a matricula do garcom");
         int matricula = scan.nextInt();
 
+        LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
+        LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);
+
         for (int i = 0; i < contas.size(); i++){
             if (contas.get(i).getMatriculaDoGarcom() == matricula
-                    && contas.get(i).getData().getDayOfMonth() >= diaInicio
-                    && contas.get(i).getData().getDayOfMonth() <= diaFinal
-                    && contas.get(i).getData().getMonthValue() >= mesInicio
-                    && contas.get(i).getData().getMonthValue() <= mesFinal) {
+                    && contas.get(i).getData().isAfter(dataInicial)
+                    && contas.get(i).getData().isBefore(dataFinal)) {
                 valorVendidoNaSemana = valorVendidoNaSemana + contas.get(i).getValorConta();
             }
         }
-
         double comissao = valorVendidoNaSemana * percentualComissao/100;
         System.out.println("O valor da comissão dessa semana será de: " + comissao);
 

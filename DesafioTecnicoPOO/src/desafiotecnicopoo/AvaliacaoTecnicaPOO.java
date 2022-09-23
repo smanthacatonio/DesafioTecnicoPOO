@@ -36,6 +36,15 @@ public class AvaliacaoTecnicaPOO {
                 LocalTime.of(13, 15),new ArrayList(), 45.65));
         contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 22),
                 LocalTime.of(14, 05),new ArrayList(), 25.15));
+//        quando começa em um mês e termina do outro
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9,29),
+                LocalTime.of(12,00), new ArrayList(), 15));
+        contas.add(new Conta(01, 01, LocalDate.of(2022,9,30),
+                LocalTime.of(13,55),new ArrayList(), 5.20));
+        contas.add(new Conta(02, 01, LocalDate.of(2022, 10, 1),
+                LocalTime.of(13, 15),new ArrayList(), 45.65));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 10, 2),
+                LocalTime.of(14, 05),new ArrayList(), 25.15));
 
 
         Caixa caixa = new Caixa();

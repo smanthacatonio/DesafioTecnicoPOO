@@ -108,10 +108,9 @@ public class AvaliacaoTecnicaPOO {
         for (int i = 0; i < garcons.size(); i++) {
             if (garcons.get(i).getMatricula() == matricula) {
                 garcom = garcons.get(i);
-            } else {
-//                System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
             }
         }
+        System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
 
         while (opcao != 0) {
 
@@ -216,7 +215,18 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
-                    System.out.println(" ..... Cadastrar Garçom ..... ");
+//                    System.out.println(" ..... Cadastrar Garçom ..... ");
+//                    System.out.println("Digite o nome do garçom: ");
+//                    String nome = scan.nextLine();
+//                    System.out.println("Digite o endereco: ");
+//                    String endereco = scan.nextLine();
+//                    System.out.println("Digite o telefone: ");
+//                    String telefone = scan.nextLine();
+//                    System.out.println("Digite a identidade: ");
+//                    int identidade = scan.nextInt();
+//                    System.out.println("Digite a matricula: ");
+//                    int matricula = scan.nextInt();
+
                     gerente.cadastrarGarcom(garcons);
                     break;
 

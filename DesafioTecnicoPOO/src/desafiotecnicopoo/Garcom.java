@@ -74,14 +74,14 @@ public class Garcom extends Funcionario {
                     contas.get(i).adicionarItemDaConta(itemDaConta);
                     double valor = produto.getPreco() * quantidade;
                     contas.get(i).calcularValorConta(valor);
+                    return; //sair do método
                 } else {
                     System.out.println("Produto não cadastrado. Tente novamente.");
                     realizarPedido(contas, produtos);
                 }
-            } else {
-//                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
             }
         }
+        System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
     }
 
     //buscar se o produto existe no banco de dados
@@ -107,13 +107,14 @@ public class Garcom extends Funcionario {
                     //enviar alerta de  cancelamento pro gerente
 
                     System.out.println("A conta foi cancelada com sucesso.");
-                } else {
-                    System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
+                    return;
                 }
-            } else {
-                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
+            }else {
+                System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
+                return;
             }
         }
+        System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
     }
 
 // emitirCancelamentoGerente
@@ -138,12 +139,11 @@ public class Garcom extends Funcionario {
                     System.out.println("Quantidade: " + contas.get(i).getItensDaConta().get(j).getQuantidade());
                     System.out.println("Produto: " + contas.get(i).getItensDaConta().get(j).getProduto().getTipoDeProduto());
                 }
-
                 System.out.println(" ---- Valor total da conta: " + contas.get(i).getValorConta() + " ---- ");
-            } else {
-                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
+                return;
             }
         }
+        System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
     }
 
 }

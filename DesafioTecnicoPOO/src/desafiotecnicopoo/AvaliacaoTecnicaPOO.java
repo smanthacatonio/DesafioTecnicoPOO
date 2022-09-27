@@ -109,7 +109,7 @@ public class AvaliacaoTecnicaPOO {
             if (garcons.get(i).getMatricula() == matricula) {
                 garcom = garcons.get(i);
             } else {
-                System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
+//                System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
             }
         }
 
@@ -295,7 +295,7 @@ public class AvaliacaoTecnicaPOO {
 
                 case 6:
                     System.out.println(" ..... Lista Gerente ..... ");
-                    proprietario.cadastrarGerente(gerentes);
+                    proprietario.imprimeDadosGerente(gerentes);
                     break;
 
                 default:

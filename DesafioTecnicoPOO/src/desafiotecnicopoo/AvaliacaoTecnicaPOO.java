@@ -11,17 +11,17 @@ public class AvaliacaoTecnicaPOO {
     public static void main(String[] args) {
 
         List<Produto> produtos = new ArrayList<>();
-        produtos.add(new Produto(TipoDeProduto.BEBIDAS, 5.20, 001));
-        produtos.add(new Produto(TipoDeProduto.PETISCOS, 25.15, 002));
-        produtos.add(new Produto(TipoDeProduto.CARNES, 45.65, 003));
-        produtos.add(new Produto(TipoDeProduto.AVES, 35, 004));
-        produtos.add(new Produto(TipoDeProduto.MASSAS, 25, 005));
-        produtos.add(new Produto(TipoDeProduto.SOBREMESAS, 15, 006));
+        produtos.add(new Produto(TipoDeProduto.BEBIDAS, 5.20, 100));
+        produtos.add(new Produto(TipoDeProduto.PETISCOS, 25.15, 200));
+        produtos.add(new Produto(TipoDeProduto.CARNES, 45.65, 300));
+        produtos.add(new Produto(TipoDeProduto.AVES, 35, 400));
+        produtos.add(new Produto(TipoDeProduto.MASSAS, 25, 500));
+        produtos.add(new Produto(TipoDeProduto.SOBREMESAS, 15, 600));
 
         List<Garcom> garcons = new ArrayList<>();
-        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 01));
-        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 02));
-        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 03));
+        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 1));
+        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 2));
+        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 3));
 
         List<Gerente> gerentes = new ArrayList<>();
         gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));

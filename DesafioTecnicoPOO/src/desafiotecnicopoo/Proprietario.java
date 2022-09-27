@@ -3,10 +3,8 @@ package desafiotecnicopoo;
 import java.util.List;
 import java.util.Scanner;
 
-public class Proprietario{
+public class Proprietario {
     Scanner scan = new Scanner(System.in);
-//extends Gerente?
-
 
     public Proprietario() {
     }
@@ -24,7 +22,6 @@ public class Proprietario{
 
         Gerente gerente = new Gerente(nome, endereco, telefone, cpf);
         gerentes.add(gerente);
-
     }
 
     public void imprimeDadosGerente(List<Gerente> gerentes) {

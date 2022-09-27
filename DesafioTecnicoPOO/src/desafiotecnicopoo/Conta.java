@@ -10,7 +10,7 @@ public class Conta {
 
     private int numeroDaMesa;
     private int matriculaDoGarcom;
-    private LocalDate data = LocalDate.now() ;
+    private LocalDate data = LocalDate.now();
     private LocalTime hora = LocalTime.now();
     private List<ItemDaConta> itensDaConta = new ArrayList<>();
     private double valorConta;
@@ -86,8 +86,8 @@ public class Conta {
     public void setValorConta(double valorConta) {
         this.valorConta = valorConta;
     }
-    
-    public void calcularValorConta(double valorConta){
+
+    public void calcularValorConta(double valorConta) {
         this.valorConta = this.valorConta + valorConta;
     }
 

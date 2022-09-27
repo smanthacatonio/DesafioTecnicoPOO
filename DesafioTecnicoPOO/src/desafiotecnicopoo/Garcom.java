@@ -1,9 +1,7 @@
 package desafiotecnicopoo;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,14 +10,14 @@ public class Garcom extends Funcionario {
 
     private int identidade;
     private int matricula;
-    
+
 
     public Garcom(String nome, String endereco, String telefone, int identidade, int matricula) {
         super(nome, endereco, telefone);
         this.identidade = identidade;
         this.matricula = matricula;
     }
-    
+
     public Garcom() {
     }
 
@@ -96,7 +94,7 @@ public class Garcom extends Funcionario {
         return null;
     }
 
-//cancelarConta (se ainda não tem itens cadastrados)
+    //cancelarConta (se ainda não tem itens cadastrados)
     public void cancelarConta(List<Conta> contas) {
 
         System.out.println("Digite o número da mesa:");
@@ -119,9 +117,9 @@ public class Garcom extends Funcionario {
     }
 
 // emitirCancelamentoGerente
-    
-    
-//fecharConta
+
+
+    //fecharConta
     public void fecharConta(List<Conta> contas) {
 
         System.out.println("Digite o número da mesa:");
@@ -134,13 +132,13 @@ public class Garcom extends Funcionario {
                 System.out.println(LocalTime.now());
                 System.out.println(" ---- Fechamento da Conta Mesa " + numDaMesa + "  ---- ");
                 System.out.println(" ---- Produtos Consumidos ---- ");
-                
+
                 for (int j = 0; j < contas.get(i).getItensDaConta().size(); j++) {
 
                     System.out.println("Quantidade: " + contas.get(i).getItensDaConta().get(j).getQuantidade());
                     System.out.println("Produto: " + contas.get(i).getItensDaConta().get(j).getProduto().getTipoDeProduto());
                 }
-                
+
                 System.out.println(" ---- Valor total da conta: " + contas.get(i).getValorConta() + " ---- ");
             } else {
                 System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");

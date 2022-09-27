@@ -15,6 +15,7 @@ public class Gerente extends Funcionario {
         super(nome, endereco, telefone);
         this.cpf = cpf;
     }
+
     public Gerente() {
 
     }
@@ -75,14 +76,14 @@ public class Gerente extends Funcionario {
         LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
         LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);
 
-        for (int i = 0; i < contas.size(); i++){
+        for (int i = 0; i < contas.size(); i++) {
             if (contas.get(i).getMatriculaDoGarcom() == matricula
                     && contas.get(i).getData().isAfter(dataInicial)
                     && contas.get(i).getData().isBefore(dataFinal)) {
                 valorVendidoNaSemana = valorVendidoNaSemana + contas.get(i).getValorConta();
             }
         }
-        double comissao = valorVendidoNaSemana * percentualComissao/100;
+        double comissao = valorVendidoNaSemana * percentualComissao / 100;
         System.out.println("O valor da comissão dessa semana será de: " + comissao);
 
     }
@@ -106,13 +107,12 @@ public class Gerente extends Funcionario {
         System.out.println("Digite a hora de fim");
         int horaFim = scan.nextInt();
 
-
         LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
         LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);
         LocalTime horaInicial = LocalTime.of(horaInicio, 00);
         LocalTime horaFinal = LocalTime.of(horaFim, 00);
 
-        for (int i = 0; i < contas.size(); i++){
+        for (int i = 0; i < contas.size(); i++) {
             if (contas.get(i).getNumeroDaMesa() == numeroDaMesa
                     && contas.get(i).getData().isAfter(dataInicial)
                     && contas.get(i).getData().isBefore(dataFinal)

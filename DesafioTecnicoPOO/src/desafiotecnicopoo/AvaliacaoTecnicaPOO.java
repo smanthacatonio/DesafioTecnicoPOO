@@ -28,23 +28,23 @@ public class AvaliacaoTecnicaPOO {
 
 
         List<Conta> contas = new ArrayList<>();
-        contas.add(new Conta(03, 01, LocalDate.of(2022, 9,19),
-                LocalTime.of(12,00), new ArrayList(), 15));
-        contas.add(new Conta(01, 01, LocalDate.of(2022,9,20),
-                LocalTime.of(13,55),new ArrayList(), 5.20));
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 19),
+                LocalTime.of(12, 00), new ArrayList(), 15));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 20),
+                LocalTime.of(13, 55), new ArrayList(), 5.20));
         contas.add(new Conta(02, 01, LocalDate.of(2022, 9, 21),
-                LocalTime.of(13, 15),new ArrayList(), 45.65));
+                LocalTime.of(13, 15), new ArrayList(), 45.65));
         contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 22),
-                LocalTime.of(14, 05),new ArrayList(), 25.15));
+                LocalTime.of(14, 05), new ArrayList(), 25.15));
 //        quando começa em um mês e termina do outro
-        contas.add(new Conta(03, 01, LocalDate.of(2022, 9,29),
-                LocalTime.of(12,00), new ArrayList(), 15));
-        contas.add(new Conta(01, 01, LocalDate.of(2022,9,30),
-                LocalTime.of(13,55),new ArrayList(), 5.20));
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 29),
+                LocalTime.of(12, 00), new ArrayList(), 15));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 30),
+                LocalTime.of(13, 55), new ArrayList(), 5.20));
         contas.add(new Conta(02, 01, LocalDate.of(2022, 10, 1),
-                LocalTime.of(13, 15),new ArrayList(), 45.65));
+                LocalTime.of(13, 15), new ArrayList(), 45.65));
         contas.add(new Conta(01, 01, LocalDate.of(2022, 10, 2),
-                LocalTime.of(14, 05),new ArrayList(), 25.15));
+                LocalTime.of(14, 05), new ArrayList(), 25.15));
 
 
         Caixa caixa = new Caixa();
@@ -121,7 +121,7 @@ public class AvaliacaoTecnicaPOO {
             System.out.println("2. Cancelar conta");
             System.out.println("3. Fechar conta");
             System.out.println("0. Logout");
-            
+
             opcao = scan.nextInt();
 
             switch (opcao) {
@@ -160,10 +160,8 @@ public class AvaliacaoTecnicaPOO {
             System.out.println(" ----- MENU CAIXA ----- ");
             System.out.println("Escolha a opção desejada");
             System.out.println("1. Abrir conta");
-            System.out.println("2. Calcular comissão");
-            System.out.println("3. Ocupação das mesas");
             System.out.println("0. Sair");
-            
+
             Scanner scan = new Scanner(System.in);
             opcao = scan.nextInt();
 
@@ -176,16 +174,6 @@ public class AvaliacaoTecnicaPOO {
                 case 1:
                     System.out.println(" ..... Abrir Conta ..... ");
                     caixa.abrirConta(contas);
-                    break;
-
-                case 2:
-                    System.out.println(" ..... Calcular Comissão ..... ");
-
-                    break;
-
-                case 3:
-                    System.out.println(" ..... Ocupação das mesas ..... ");
-
                     break;
 
                 default:
@@ -204,7 +192,7 @@ public class AvaliacaoTecnicaPOO {
         Gerente gerente = new Gerente();
 
         for (int i = 0; i < gerentes.size(); i++) {
-            if (gerentes.get(i).getCpf() == cpf){
+            if (gerentes.get(i).getCpf() == cpf) {
                 gerente = gerentes.get(i);
             }
         }

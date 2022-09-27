@@ -2,7 +2,7 @@ package desafiotecnicopoo;
 
 public enum TipoDeProduto {
 
-    BEBIDAS("Bebidas"), PETISCOS("Petiscos"), CARNES("Carnes"), AVES("Aves"), 
+    BEBIDAS("Bebidas"), PETISCOS("Petiscos"), CARNES("Carnes"), AVES("Aves"),
     MASSAS("Massas"), SOBREMESAS("Sobremesas");
 
     private String descricao;
@@ -18,6 +18,6 @@ public enum TipoDeProduto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
+
+
 }

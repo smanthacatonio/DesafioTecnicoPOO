@@ -1,7 +1,6 @@
 package desafiotecnicopoo;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class Caixa {
 
@@ -12,8 +11,5 @@ public class Caixa {
         Conta conta = new Conta();
         contas.add(conta);
     }
-
-//ocupacaoDasMesas;
-
 
 }

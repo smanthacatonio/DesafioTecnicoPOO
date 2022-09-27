@@ -1,6 +1,7 @@
 package desafiotecnicopoo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -83,6 +84,45 @@ public class Gerente extends Funcionario {
         }
         double comissao = valorVendidoNaSemana * percentualComissao/100;
         System.out.println("O valor da comissão dessa semana será de: " + comissao);
+
+    }
+
+    public void calcularOcupacoMesas(List<Conta> contas) {
+
+        double ocupacaoDaMesa = 0;
+
+        System.out.println("Digite o número da mesa");
+        int numeroDaMesa = scan.nextInt();
+        System.out.println("Digite o dia de início da semana");
+        int diaInicio = scan.nextInt();
+        System.out.println("Digite o mês de início da semana");
+        int mesInicio = scan.nextInt();
+        System.out.println("Digite o dia de final da semana");
+        int diaFinal = scan.nextInt();
+        System.out.println("Digite o mês de final da semana");
+        int mesFinal = scan.nextInt();
+        System.out.println("Digite a hora de início");
+        int horaInicio = scan.nextInt();
+        System.out.println("Digite a hora de fim");
+        int horaFim = scan.nextInt();
+
+
+        LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
+        LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);
+        LocalTime horaInicial = LocalTime.of(horaInicio, 00);
+        LocalTime horaFinal = LocalTime.of(horaFim, 00);
+
+        for (int i = 0; i < contas.size(); i++){
+            if (contas.get(i).getNumeroDaMesa() == numeroDaMesa
+                    && contas.get(i).getData().isAfter(dataInicial)
+                    && contas.get(i).getData().isBefore(dataFinal)
+                    && contas.get(i).getHora().isAfter(horaInicial)
+                    && contas.get(i).getHora().isBefore(horaFinal)) {
+                ocupacaoDaMesa++;
+            }
+        }
+
+        System.out.println("A mesa " + numeroDaMesa + " foi ocupada: " + ocupacaoDaMesa + " vezes essa semana");
 
     }
 }

@@ -20,8 +20,8 @@ public class AvaliacaoTecnicaPOO {
 
         List<Garcom> garcons = new ArrayList<>();
         garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 01));
-//        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 02));
-//        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 02));
+        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 02));
+        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 03));
 
         List<Gerente> gerentes = new ArrayList<>();
         gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
@@ -87,7 +87,7 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 4:
-                    menuProprietario(proprietario, gerentes);
+                    menuProprietario(proprietario, gerentes, garcons, contas);
                     break;
 
                 default:
@@ -238,7 +238,8 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 3:
-
+                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
+                    gerente.calcularOcupacoMesas(contas);
                     break;
 
                 case 4:
@@ -253,18 +254,24 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuProprietario(Proprietario proprietario, List<Gerente> gerentes) {
+    public static void menuProprietario(Proprietario proprietario, List<Gerente> gerentes, List<Garcom> garcons, List<Conta> contas) {
         int opcao = 1;
         Scanner scan = new Scanner(System.in);
+
+        Gerente gerente = new Gerente();
 
         while (opcao != 0) {
 
             System.out.println(" ----- MENU PROPRIETÁRIO ----- ");
             System.out.println("Escolha a opção desejada");
-            System.out.println("1. Cadastrar gerente");
-            System.out.println("2. Imprimir lista de gerentes");
-            System.out.println("3. Calcular comissão");
+            System.out.println("1. Cadastrar garçom");
+            System.out.println("2. Calcular comissão");
+            System.out.println("3. Ocupação das mesas");
+            System.out.println("4. Imprimir lista de garçons");
+            System.out.println("5. Cadastrar gerente");
+            System.out.println("6. Imprimir lista de gerentes");
             System.out.println("0. Sair");
+
             opcao = scan.nextInt();
 
             switch (opcao) {
@@ -274,17 +281,33 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
+                    System.out.println(" ..... Cadastrar Garçom ..... ");
+                    gerente.cadastrarGarcom(garcons);
+                    break;
+
+                case 2:
+                    System.out.println(" ..... Calcular Comissão ..... ");
+                    gerente.calcularComissao(contas);
+                    break;
+
+                case 3:
+                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
+                    gerente.calcularOcupacoMesas(contas);
+                    break;
+
+                case 4:
+                    System.out.println(" ..... Lista Garçons ..... ");
+                    gerente.imprimeDadosGarcom(garcons);
+                    break;
+
+                case 5:
                     System.out.println(" ..... Cadastrar Gerente ..... ");
                     proprietario.cadastrarGerente(gerentes);
                     break;
 
-                case 2:
-                    System.out.println(" ..... Lista Gerentes ..... ");
-                    proprietario.imprimeDadosGerente(gerentes);
-                    break;
-
-                case 3:
-
+                case 6:
+                    System.out.println(" ..... Lista Gerente ..... ");
+                    proprietario.cadastrarGerente(gerentes);
                     break;
 
                 default:

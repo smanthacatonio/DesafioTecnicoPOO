@@ -3,7 +3,7 @@ package desafiotecnicopoo;
 import java.util.List;
 import java.util.Scanner;
 
-public class Proprietario {
+public class Proprietario{
     Scanner scan = new Scanner(System.in);
 //extends Gerente?
 

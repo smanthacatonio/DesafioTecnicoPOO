@@ -131,17 +131,34 @@ public class AvaliacaoTecnicaPOO {
 
                 case 1:
                     System.out.println(" ..... Realizar Pedido ..... ");
-                    garcom.realizarPedido(contas, produtos);
+
+                    System.out.println("Digite o número da mesa:");
+                    int numDaMesa = scan.nextInt();
+                    System.out.println("Digite o Codigo do produto");
+                    int codigo = scan.nextInt();
+                    System.out.println("Digite a quantidade");
+                    int quantidade = scan.nextInt();
+
+                    garcom.realizarPedido(contas, produtos, numDaMesa, codigo, quantidade);
                     break;
 
                 case 2:
                     System.out.println(" ..... Cancelar Conta ..... ");
-                    garcom.cancelarConta(contas);
+
+                    System.out.println("Digite o número da mesa:");
+                    numDaMesa = scan.nextInt();
+
+                    garcom.cancelarConta(contas, numDaMesa);
                     break;
 
                 case 3:
                     System.out.println(" ..... Fechar Conta ..... ");
-                    garcom.fecharConta(contas);
+
+                    System.out.println("Digite o número da mesa:");
+                    numDaMesa = scan.nextInt();
+
+
+                    garcom.fecharConta(contas, numDaMesa);
                     break;
 
                 default:

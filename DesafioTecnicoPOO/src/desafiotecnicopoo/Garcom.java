@@ -3,10 +3,8 @@ package desafiotecnicopoo;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Scanner;
 
 public class Garcom extends Funcionario {
-    Scanner scan = new Scanner(System.in);
 
     private int identidade;
     private int matricula;
@@ -38,20 +36,10 @@ public class Garcom extends Funcionario {
     }
 
     //Conta relativa à mesa
-    public void realizarPedido(List<Conta> contas, List<Produto> produtos) {
-        int quantidade;
-        int codigo;
-        int indiceDoItem;
-
-        System.out.println("Digite o número da mesa:");
-        int numDaMesa = scan.nextInt();
+    public void realizarPedido(List<Conta> contas, List<Produto> produtos, int numDaMesa, int codigo, int quantidade) {
 
         for (int i = 0; i < contas.size(); i++) {
             if (contas.get(i).getNumeroDaMesa() == numDaMesa) {
-                System.out.println("Digite o Codigo do produto");
-                codigo = scan.nextInt();
-                System.out.println("Digite a quantidade");
-                quantidade = scan.nextInt();
 
                 //lista de itens já existentes nessa conta
                 List<ItemDaConta> itensDaConta = contas.get(i).getItensDaConta();
@@ -77,7 +65,7 @@ public class Garcom extends Funcionario {
                     return; //sair do método
                 } else {
                     System.out.println("Produto não cadastrado. Tente novamente.");
-                    realizarPedido(contas, produtos);
+                    realizarPedido(contas, produtos, numDaMesa, codigo, quantidade);
                 }
             }
         }
@@ -95,10 +83,7 @@ public class Garcom extends Funcionario {
     }
 
     //cancelarConta (se ainda não tem itens cadastrados)
-    public void cancelarConta(List<Conta> contas) {
-
-        System.out.println("Digite o número da mesa:");
-        int numDaMesa = scan.nextInt();
+    public void cancelarConta(List<Conta> contas, int numDaMesa) {
 
         for (int i = 0; i < contas.size(); i++) {
             if (contas.get(i).getNumeroDaMesa() == numDaMesa) {
@@ -109,7 +94,7 @@ public class Garcom extends Funcionario {
                     System.out.println("A conta foi cancelada com sucesso.");
                     return;
                 }
-            }else {
+            } else {
                 System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
                 return;
             }
@@ -121,10 +106,7 @@ public class Garcom extends Funcionario {
 
 
     //fecharConta
-    public void fecharConta(List<Conta> contas) {
-
-        System.out.println("Digite o número da mesa:");
-        int numDaMesa = scan.nextInt();
+    public void fecharConta(List<Conta> contas, int numDaMesa) {
 
         for (int i = 0; i < contas.size(); i++) {
             if (contas.get(i).getNumeroDaMesa() == numDaMesa) {

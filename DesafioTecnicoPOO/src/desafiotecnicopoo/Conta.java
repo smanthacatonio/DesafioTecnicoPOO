@@ -13,16 +13,9 @@ public class Conta {
     private LocalDate data = LocalDate.now();
     private LocalTime hora = LocalTime.now();
     private List<ItemDaConta> itensDaConta = new ArrayList<>();
-    private double valorConta;
+    private double valorConta = 0;
 
     public Conta() {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Digite o número da mesa: ");
-        numeroDaMesa = scan.nextInt();
-        System.out.println("Digite a matricula do Garcom: ");
-        matriculaDoGarcom = scan.nextInt();
-        valorConta = 0;
     }
 
     public Conta(int numeroDaMesa, int matriculaDoGarcom, LocalDate data, LocalTime hora,

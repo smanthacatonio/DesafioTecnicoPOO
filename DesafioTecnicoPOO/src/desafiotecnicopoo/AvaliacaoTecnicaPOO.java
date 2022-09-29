@@ -172,7 +172,13 @@ public class AvaliacaoTecnicaPOO {
 
                 case 1:
                     System.out.println(" ..... Abrir Conta ..... ");
-                    caixa.abrirConta(contas);
+
+                    System.out.println("Digite o número da mesa: ");
+                    int numeroDaMesa = scan.nextInt();
+                    System.out.println("Digite a matricula do Garcom: ");
+                    int matriculaDoGarcom = scan.nextInt();
+
+                    caixa.abrirConta(contas, numeroDaMesa, matriculaDoGarcom);
                     break;
 
                 default:

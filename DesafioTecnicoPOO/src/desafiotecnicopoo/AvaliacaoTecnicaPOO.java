@@ -10,7 +10,46 @@ public class AvaliacaoTecnicaPOO {
 
     public static void main(String[] args) {
 
+        List<Produto> produtos = new ArrayList<>();
+        produtos.add(new Produto(TipoDeProduto.BEBIDAS, 5.20, 100));
+        produtos.add(new Produto(TipoDeProduto.PETISCOS, 25.15, 200));
+        produtos.add(new Produto(TipoDeProduto.CARNES, 45.65, 300));
+        produtos.add(new Produto(TipoDeProduto.AVES, 35, 400));
+        produtos.add(new Produto(TipoDeProduto.MASSAS, 25, 500));
+        produtos.add(new Produto(TipoDeProduto.SOBREMESAS, 15, 600));
 
+        List<Garcom> garcons = new ArrayList<>();
+        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 1));
+        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 2));
+        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 3));
+
+        List<Gerente> gerentes = new ArrayList<>();
+        gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
+
+
+        List<Conta> contas = new ArrayList<>();
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 19),
+                LocalTime.of(12, 00), new ArrayList(), 15));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 20),
+                LocalTime.of(13, 55), new ArrayList(), 5.20));
+        contas.add(new Conta(02, 01, LocalDate.of(2022, 9, 21),
+                LocalTime.of(13, 15), new ArrayList(), 45.65));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 22),
+                LocalTime.of(14, 05), new ArrayList(), 25.15));
+//        quando começa em um mês e termina do outro
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 29),
+                LocalTime.of(12, 00), new ArrayList(), 15));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 30),
+                LocalTime.of(13, 55), new ArrayList(), 5.20));
+        contas.add(new Conta(02, 01, LocalDate.of(2022, 10, 1),
+                LocalTime.of(13, 15), new ArrayList(), 45.65));
+        contas.add(new Conta(01, 01, LocalDate.of(2022, 10, 2),
+                LocalTime.of(14, 05), new ArrayList(), 25.15));
+
+
+        Caixa caixa = new Caixa();
+
+        Proprietario proprietario = new Proprietario();
 
         menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
     }
@@ -176,29 +215,67 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
-//                    System.out.println(" ..... Cadastrar Garçom ..... ");
-//                    System.out.println("Digite o nome do garçom: ");
-//                    String nome = scan.nextLine();
-//                    System.out.println("Digite o endereco: ");
-//                    String endereco = scan.nextLine();
-//                    System.out.println("Digite o telefone: ");
-//                    String telefone = scan.nextLine();
-//                    System.out.println("Digite a identidade: ");
-//                    int identidade = scan.nextInt();
-//                    System.out.println("Digite a matricula: ");
-//                    int matricula = scan.nextInt();
+                    System.out.println(" ..... Cadastrar Garçom ..... ");
+                    System.out.println("Digite o nome do garçom: ");
+                    String nome = scan.nextLine();
+                    System.out.println("Digite o endereco: ");
+                    String endereco = scan.nextLine();
+                    System.out.println("Digite o telefone: ");
+                    String telefone = scan.nextLine();
+                    System.out.println("Digite a identidade: ");
+                    int identidade = scan.nextInt();
+                    System.out.println("Digite a matricula: ");
+                    int matricula = scan.nextInt();
 
-                    gerente.cadastrarGarcom(garcons);
+                    gerente.cadastrarGarcom(garcons, nome, endereco, telefone, identidade, matricula);
                     break;
 
                 case 2:
                     System.out.println(" ..... Calcular Comissão ..... ");
-                    gerente.calcularComissao(contas);
+
+                    double percentualComissao;
+                    double valorVendidoNaSemana = 0;
+
+                    System.out.println("Digite o dia de início da semana");
+                    int diaInicio = scan.nextInt();
+                    System.out.println("Digite o mês de início da semana");
+                    int mesInicio = scan.nextInt();
+                    System.out.println("Digite o dia de final da semana");
+                    int diaFinal = scan.nextInt();
+                    System.out.println("Digite o mês de final da semana");
+                    int mesFinal = scan.nextInt();
+
+                    System.out.println("Digite o valor do percentual da comissão dessa semana.");
+                    percentualComissao = scan.nextDouble();
+                    System.out.println("Digite a matricula do garcom");
+                    matricula = scan.nextInt();
+
+                    gerente.calcularComissao(contas, percentualComissao, valorVendidoNaSemana, diaInicio, mesInicio,
+                            diaFinal, mesFinal, matricula);
                     break;
 
                 case 3:
                     System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
-                    gerente.calcularOcupacoMesas(contas);
+
+                    double ocupacaoDaMesa = 0;
+
+                    System.out.println("Digite o número da mesa");
+                    int numeroDaMesa = scan.nextInt();
+                    System.out.println("Digite o dia de início da semana");
+                    diaInicio = scan.nextInt();
+                    System.out.println("Digite o mês de início da semana");
+                    mesInicio = scan.nextInt();
+                    System.out.println("Digite o dia de final da semana");
+                    diaFinal = scan.nextInt();
+                    System.out.println("Digite o mês de final da semana");
+                    mesFinal = scan.nextInt();
+                    System.out.println("Digite a hora de início");
+                    int horaInicio = scan.nextInt();
+                    System.out.println("Digite a hora de fim");
+                    int horaFim = scan.nextInt();
+
+                    gerente.calcularOcupacoMesas(contas, ocupacaoDaMesa, numeroDaMesa, diaInicio, mesInicio,
+                            diaFinal, mesFinal, horaInicio, horaFim);
                     break;
 
                 case 4:
@@ -235,39 +312,39 @@ public class AvaliacaoTecnicaPOO {
 
             switch (opcao) {
 
-                case 0:
-                    System.out.println("Saindo.........");
-                    break;
-
-                case 1:
-                    System.out.println(" ..... Cadastrar Garçom ..... ");
-                    gerente.cadastrarGarcom(garcons);
-                    break;
-
-                case 2:
-                    System.out.println(" ..... Calcular Comissão ..... ");
-                    gerente.calcularComissao(contas);
-                    break;
-
-                case 3:
-                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
-                    gerente.calcularOcupacoMesas(contas);
-                    break;
-
-                case 4:
-                    System.out.println(" ..... Lista Garçons ..... ");
-                    gerente.imprimeDadosGarcom(garcons);
-                    break;
-
-                case 5:
-                    System.out.println(" ..... Cadastrar Gerente ..... ");
-                    proprietario.cadastrarGerente(gerentes);
-                    break;
-
-                case 6:
-                    System.out.println(" ..... Lista Gerente ..... ");
-                    proprietario.imprimeDadosGerente(gerentes);
-                    break;
+//                case 0:
+//                    System.out.println("Saindo.........");
+//                    break;
+//
+//                case 1:
+//                    System.out.println(" ..... Cadastrar Garçom ..... ");
+////                    gerente.cadastrarGarcom(garcons);
+//                    break;
+//
+//                case 2:
+//                    System.out.println(" ..... Calcular Comissão ..... ");
+//                    gerente.calcularComissao(contas);
+//                    break;
+//
+//                case 3:
+//                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
+//                    gerente.calcularOcupacoMesas(contas);
+//                    break;
+//
+//                case 4:
+//                    System.out.println(" ..... Lista Garçons ..... ");
+//                    gerente.imprimeDadosGarcom(garcons);
+//                    break;
+//
+//                case 5:
+//                    System.out.println(" ..... Cadastrar Gerente ..... ");
+//                    proprietario.cadastrarGerente(gerentes);
+//                    break;
+//
+//                case 6:
+//                    System.out.println(" ..... Lista Gerente ..... ");
+//                    proprietario.imprimeDadosGerente(gerentes);
+//                    break;
 
                 default:
                     System.out.println("Opção inválida!");

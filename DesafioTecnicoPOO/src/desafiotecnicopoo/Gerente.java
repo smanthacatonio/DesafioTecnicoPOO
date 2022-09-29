@@ -3,11 +3,8 @@ package desafiotecnicopoo;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Scanner;
 
 public class Gerente extends Funcionario {
-
-    Scanner scan = new Scanner(System.in);
 
     private int cpf;
 
@@ -28,19 +25,7 @@ public class Gerente extends Funcionario {
         this.cpf = cpf;
     }
 
-    public void cadastrarGarcom(List<Garcom> garcons) {
-
-        System.out.println("Digite o nome do garçom: ");
-        String nome = scan.nextLine();
-        System.out.println("Digite o endereco: ");
-        String endereco = scan.nextLine();
-        System.out.println("Digite o telefone: ");
-        String telefone = scan.nextLine();
-        System.out.println("Digite a identidade: ");
-        int identidade = scan.nextInt();
-        System.out.println("Digite a matricula: ");
-        int matricula = scan.nextInt();
-
+    public void cadastrarGarcom(List<Garcom> garcons, String nome, String endereco, String telefone, int identidade, int matricula) {
         Garcom garcom = new Garcom(nome, endereco, telefone, identidade, matricula);
         garcons.add(garcom);
     }
@@ -54,24 +39,8 @@ public class Gerente extends Funcionario {
         }
     }
 
-    public void calcularComissao(List<Conta> contas) {
-
-        double percentualComissao;
-        double valorVendidoNaSemana = 0;
-
-        System.out.println("Digite o dia de início da semana");
-        int diaInicio = scan.nextInt();
-        System.out.println("Digite o mês de início da semana");
-        int mesInicio = scan.nextInt();
-        System.out.println("Digite o dia de final da semana");
-        int diaFinal = scan.nextInt();
-        System.out.println("Digite o mês de final da semana");
-        int mesFinal = scan.nextInt();
-
-        System.out.println("Digite o valor do percentual da comissão dessa semana.");
-        percentualComissao = scan.nextDouble();
-        System.out.println("Digite a matricula do garcom");
-        int matricula = scan.nextInt();
+    public void calcularComissao(List<Conta> contas, double percentualComissao, double valorVendidoNaSemana, int diaInicio,
+                                 int mesInicio, int diaFinal, int mesFinal, int matricula) {
 
         LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
         LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);
@@ -88,24 +57,8 @@ public class Gerente extends Funcionario {
 
     }
 
-    public void calcularOcupacoMesas(List<Conta> contas) {
-
-        double ocupacaoDaMesa = 0;
-
-        System.out.println("Digite o número da mesa");
-        int numeroDaMesa = scan.nextInt();
-        System.out.println("Digite o dia de início da semana");
-        int diaInicio = scan.nextInt();
-        System.out.println("Digite o mês de início da semana");
-        int mesInicio = scan.nextInt();
-        System.out.println("Digite o dia de final da semana");
-        int diaFinal = scan.nextInt();
-        System.out.println("Digite o mês de final da semana");
-        int mesFinal = scan.nextInt();
-        System.out.println("Digite a hora de início");
-        int horaInicio = scan.nextInt();
-        System.out.println("Digite a hora de fim");
-        int horaFim = scan.nextInt();
+    public void calcularOcupacoMesas(List<Conta> contas, double ocupacaoDaMesa, int numeroDaMesa, int diaInicio, int mesInicio,
+                                     int diaFinal, int mesFinal, int horaInicio, int horaFim) {
 
         LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
         LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);

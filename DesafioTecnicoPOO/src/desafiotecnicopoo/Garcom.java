@@ -65,7 +65,7 @@ public class Garcom extends Funcionario {
                     return; //sair do método
                 } else {
                     System.out.println("Produto não cadastrado. Tente novamente.");
-                    realizarPedido(contas, produtos, numDaMesa, codigo, quantidade);
+//                    realizarPedido(contas, produtos, numDaMesa, codigo, quantidade);
                 }
             }
         }

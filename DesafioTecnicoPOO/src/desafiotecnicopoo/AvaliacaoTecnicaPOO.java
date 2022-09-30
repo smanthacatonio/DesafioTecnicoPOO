@@ -51,7 +51,9 @@ public class AvaliacaoTecnicaPOO {
 //
 //        Proprietario proprietario = new Proprietario();
 
-//        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
+        Restaurante restaurante = new Restaurante();
+
+        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
     }
 
     public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos,

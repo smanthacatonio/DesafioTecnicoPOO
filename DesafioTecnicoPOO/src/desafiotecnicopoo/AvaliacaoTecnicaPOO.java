@@ -1,59 +1,34 @@
 package desafiotecnicopoo;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static desafiotecnicopoo.Restaurante.garcons;
+import static desafiotecnicopoo.Restaurante.contas;
+import static desafiotecnicopoo.Restaurante.produtos;
+import static desafiotecnicopoo.Restaurante.caixa;
+import static desafiotecnicopoo.Restaurante.gerentes;
+import static desafiotecnicopoo.Restaurante.proprietario;
 
 public class AvaliacaoTecnicaPOO {
 
     public static void main(String[] args) {
 
-//        List<Produto> produtos = new ArrayList<>();
-//        produtos.add(new Produto(TipoDeProduto.BEBIDAS, 5.20, 100));
-//        produtos.add(new Produto(TipoDeProduto.PETISCOS, 25.15, 200));
-//        produtos.add(new Produto(TipoDeProduto.CARNES, 45.65, 300));
-//        produtos.add(new Produto(TipoDeProduto.AVES, 35, 400));
-//        produtos.add(new Produto(TipoDeProduto.MASSAS, 25, 500));
-//        produtos.add(new Produto(TipoDeProduto.SOBREMESAS, 15, 600));
-//
-//        List<Garcom> garcons = new ArrayList<>();
-//        garcons.add(new Garcom("joao", "Rua tal", "12345678", 123456, 1));
-//        garcons.add(new Garcom("maria", "Rua tal", "12345678", 123456, 2));
-//        garcons.add(new Garcom("jose", "Rua tal", "12345678", 123456, 3));
-//
-//        List<Gerente> gerentes = new ArrayList<>();
-//        gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
-//
-//
-//        List<Conta> contas = new ArrayList<>();
-//        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 19),
-//                LocalTime.of(12, 00), new ArrayList(), 15));
-//        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 20),
-//                LocalTime.of(13, 55), new ArrayList(), 5.20));
-//        contas.add(new Conta(02, 01, LocalDate.of(2022, 9, 21),
-//                LocalTime.of(13, 15), new ArrayList(), 45.65));
-//        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 22),
-//                LocalTime.of(14, 05), new ArrayList(), 25.15));
-////        quando começa em um mês e termina do outro
-//        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 29),
-//                LocalTime.of(12, 00), new ArrayList(), 15));
-//        contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 30),
-//                LocalTime.of(13, 55), new ArrayList(), 5.20));
-//        contas.add(new Conta(02, 01, LocalDate.of(2022, 10, 1),
-//                LocalTime.of(13, 15), new ArrayList(), 45.65));
-//        contas.add(new Conta(01, 01, LocalDate.of(2022, 10, 2),
-//                LocalTime.of(14, 05), new ArrayList(), 25.15));
-//
-//
-//        Caixa caixa = new Caixa();
-//
-//        Proprietario proprietario = new Proprietario();
-
         Restaurante restaurante = new Restaurante();
+        restaurante.listasDeDados();
+
+//        Restaurante.garcons;
+//
+//        restaurante.garcons;
+//        restaurante.contas
+//        restaurante.produtos;
+//        restaurante.caixa;
+//        restaurante.gerentes;
+//        restaurante.proprietario;
+
 
         menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
+
     }
 
     public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos,

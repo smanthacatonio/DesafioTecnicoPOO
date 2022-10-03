@@ -8,7 +8,7 @@ public class Caixa {
     }
 
     public void abrirConta(List<Conta> contas, int numeroDaMesa, int matriculaDoGarcom) {
-        Conta conta = new Conta();
+        Conta conta = new Conta(numeroDaMesa, matriculaDoGarcom);
         contas.add(conta);
     }
 

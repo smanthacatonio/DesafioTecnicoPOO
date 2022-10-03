@@ -93,13 +93,16 @@ public class Garcom extends Funcionario {
 
                     System.out.println("A conta foi cancelada com sucesso.");
                     return;
+                }else {
+                    System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
+                    return;
                 }
-            } else {
-                System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
+            }else {
+                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
                 return;
             }
         }
-        System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
+//        System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
     }
 
 // emitirCancelamentoGerente

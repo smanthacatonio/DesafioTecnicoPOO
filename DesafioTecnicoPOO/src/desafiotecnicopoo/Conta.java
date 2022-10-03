@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Conta {
 
@@ -26,6 +25,11 @@ public class Conta {
         this.hora = hora;
         this.itensDaConta = itensDaConta;
         this.valorConta = valorConta;
+    }
+
+    public Conta (int numeroDaMesa, int matriculaDoGarcom) {
+        this.numeroDaMesa = numeroDaMesa;
+        this.matriculaDoGarcom = matriculaDoGarcom;
     }
 
     public int getNumeroDaMesa() {

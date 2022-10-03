@@ -10,6 +10,7 @@ import static desafiotecnicopoo.Restaurante.caixa;
 import static desafiotecnicopoo.Restaurante.gerentes;
 import static desafiotecnicopoo.Restaurante.proprietario;
 
+
 public class AvaliacaoTecnicaPOO {
 
     public static void main(String[] args) {

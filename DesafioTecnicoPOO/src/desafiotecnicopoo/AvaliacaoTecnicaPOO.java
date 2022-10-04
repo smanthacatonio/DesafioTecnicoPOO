@@ -127,7 +127,7 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuCaixa(Caixa caixa, List<Conta> contas) {
+    public static void menuCaixa() {
 
         int opcao = 1;
 
@@ -155,7 +155,8 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a matricula do Garcom: ");
                     int matriculaDoGarcom = scan.nextInt();
 
-                    caixa.abrirConta(contas, numeroDaMesa, matriculaDoGarcom);
+                    Conta novaConta = caixa.abrirConta(numeroDaMesa, matriculaDoGarcom);
+                    restaurante.adicionarConta(novaConta);
                     break;
 
                 default:

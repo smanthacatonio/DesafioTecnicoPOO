@@ -7,9 +7,9 @@ public class Caixa {
     public Caixa() {
     }
 
-    public void abrirConta(List<Conta> contas, int numeroDaMesa, int matriculaDoGarcom) {
+    public Conta abrirConta(int numeroDaMesa, int matriculaDoGarcom) {
         Conta conta = new Conta(numeroDaMesa, matriculaDoGarcom);
-        contas.add(conta);
+        return conta;
     }
 
 }

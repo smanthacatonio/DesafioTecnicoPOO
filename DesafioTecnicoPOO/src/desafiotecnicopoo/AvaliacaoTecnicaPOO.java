@@ -199,6 +199,7 @@ public class AvaliacaoTecnicaPOO {
 
                 case 1:
                     System.out.println(" ..... Cadastrar Garçom ..... ");
+                    scan.nextLine();
                     System.out.println("Digite o nome do garçom: ");
                     String nome = scan.nextLine();
                     System.out.println("Digite o endereco: ");
@@ -308,6 +309,7 @@ public class AvaliacaoTecnicaPOO {
 
                 case 1:
                     System.out.println(" ..... Cadastrar Garçom ..... ");
+                    scan.nextLine();
                     System.out.println("Digite o nome do garçom: ");
                     String nome = scan.nextLine();
                     System.out.println("Digite o endereco: ");
@@ -383,6 +385,7 @@ public class AvaliacaoTecnicaPOO {
 
                 case 6:
                     System.out.println(" ..... Cadastrar Gerente ..... ");
+                    scan.nextLine();
                     System.out.println("Digite o nome do gerente: ");
                     nome = scan.nextLine();
                     System.out.println("Digite o endereco: ");

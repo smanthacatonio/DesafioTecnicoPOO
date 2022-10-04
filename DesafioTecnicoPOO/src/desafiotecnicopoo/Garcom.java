@@ -109,22 +109,22 @@ public class Garcom extends Funcionario {
 
 
     //fecharConta
-    public void fecharConta(List<Conta> contas, int numDaMesa) {
+    public void fecharConta(Restaurante restaurante, int numDaMesa) {
 
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getNumeroDaMesa() == numDaMesa) {
+        for (int i = 0; i < restaurante.getContas().size(); i++) {
+            if (restaurante.getContas().get(i).getNumeroDaMesa() == numDaMesa) {
                 System.out.println(" ---- Nota Fiscal ---- ");
                 System.out.println(LocalDate.now());
                 System.out.println(LocalTime.now());
                 System.out.println(" ---- Fechamento da Conta Mesa " + numDaMesa + "  ---- ");
                 System.out.println(" ---- Produtos Consumidos ---- ");
 
-                for (int j = 0; j < contas.get(i).getItensDaConta().size(); j++) {
+                for (int j = 0; j < restaurante.getContas().get(i).getItensDaConta().size(); j++) {
 
-                    System.out.println("Quantidade: " + contas.get(i).getItensDaConta().get(j).getQuantidade());
-                    System.out.println("Produto: " + contas.get(i).getItensDaConta().get(j).getProduto().getTipoDeProduto());
+                    System.out.println("Quantidade: " + restaurante.getContas().get(i).getItensDaConta().get(j).getQuantidade());
+                    System.out.println("Produto: " + restaurante.getContas().get(i).getItensDaConta().get(j).getProduto().getTipoDeProduto());
                 }
-                System.out.println(" ---- Valor total da conta: " + contas.get(i).getValorConta() + " ---- ");
+                System.out.println(" ---- Valor total da conta: " + restaurante.getContas().get(i).getValorConta() + " ---- ");
                 return;
             }
         }

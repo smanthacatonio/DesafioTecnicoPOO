@@ -116,7 +116,7 @@ public class AvaliacaoTecnicaPOO {
                     numDaMesa = scan.nextInt();
 
 
-                    garcom.fecharConta(numDaMesa);
+                    garcom.fecharConta(restaurante, numDaMesa);
                     break;
 
                 default:

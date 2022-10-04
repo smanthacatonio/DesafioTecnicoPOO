@@ -106,7 +106,7 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite o número da mesa:");
                     numDaMesa = scan.nextInt();
 
-                    garcom.cancelarConta(numDaMesa);
+                    garcom.cancelarConta(restaurante, numDaMesa);
                     break;
 
                 case 3:

@@ -73,22 +73,22 @@ public class Garcom extends Funcionario {
     }
 
     //buscar se o produto existe no banco de dados
-    public Produto buscarProduto(int codigo, List<Produto> produtos) {
-        for (int i = 0; i < produtos.size(); i++) {
-            if (produtos.get(i).getCodigo() == codigo) {
-                return produtos.get(i);
+    public Produto buscarProduto(Restaurante restaurante, int codigo) {
+        for (int i = 0; i < restaurante.getProdutos().size(); i++) {
+            if (restaurante.getProdutos().get(i).getCodigo() == codigo) {
+                return restaurante.getProdutos().get(i);
             }
         }
         return null;
     }
 
     //cancelarConta (se ainda não tem itens cadastrados)
-    public void cancelarConta(List<Conta> contas, int numDaMesa) {
+    public void cancelarConta(Restaurante restaurante, int numDaMesa) {
 
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getNumeroDaMesa() == numDaMesa) {
-                if (contas.get(i).getItensDaConta().isEmpty()) {
-                    contas.remove(i);
+        for (int i = 0; i < restaurante.getContas().size(); i++) {
+            if (restaurante.getContas().get(i).getNumeroDaMesa() == numDaMesa) {
+                if (restaurante.getContas().get(i).getItensDaConta().isEmpty()) {
+                    restaurante.getContas().remove(i);
                     //enviar alerta de  cancelamento pro gerente
 
                     System.out.println("A conta foi cancelada com sucesso.");

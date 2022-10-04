@@ -86,6 +86,12 @@ public class Restaurante {
         contas.add(conta);
     }
 
+    public void imprimeContasAbertas() {
+        for (int i = 0; i < contas.size(); i++) {
+            System.out.println("Numero da mesa: " + contas.get(i).getNumeroDaMesa());
+        }
+    }
+
     public List<Produto> getProdutos() {
         return produtos;
     }

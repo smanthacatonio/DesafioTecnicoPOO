@@ -186,109 +186,7 @@ public class AvaliacaoTecnicaPOO {
             System.out.println("2. Calcular comissão");
             System.out.println("3. Ocupação das mesas");
             System.out.println("4. Imprimir lista de garçons");
-            System.out.println("0. Sair");
-
-            opcao = scan.nextInt();
-
-            switch (opcao) {
-
-                case 0:
-                    System.out.println("Saindo.........");
-                    break;
-
-                case 1:
-                    System.out.println(" ..... Cadastrar Garçom ..... ");
-                    System.out.println("Digite o nome do garçom: ");
-                    String nome = scan.nextLine();
-                    System.out.println("Digite o endereco: ");
-                    String endereco = scan.nextLine();
-                    System.out.println("Digite o telefone: ");
-                    String telefone = scan.nextLine();
-                    System.out.println("Digite a identidade: ");
-                    int identidade = scan.nextInt();
-                    System.out.println("Digite a matricula: ");
-                    int matricula = scan.nextInt();
-
-                    Garcom novoGarcom = gerente.cadastrarGarcom(nome, endereco, telefone, identidade, matricula);
-                    restaurante.adicionarGarcom(novoGarcom);
-                    break;
-
-                case 2:
-                    System.out.println(" ..... Calcular Comissão ..... ");
-
-                    double percentualComissao;
-                    double valorVendidoNaSemana = 0;
-
-                    System.out.println("Digite o dia de início da semana");
-                    int diaInicio = scan.nextInt();
-                    System.out.println("Digite o mês de início da semana");
-                    int mesInicio = scan.nextInt();
-                    System.out.println("Digite o dia de final da semana");
-                    int diaFinal = scan.nextInt();
-                    System.out.println("Digite o mês de final da semana");
-                    int mesFinal = scan.nextInt();
-
-                    System.out.println("Digite o valor do percentual da comissão dessa semana.");
-                    percentualComissao = scan.nextDouble();
-                    System.out.println("Digite a matricula do garcom");
-                    matricula = scan.nextInt();
-
-                    gerente.calcularComissao(restaurante, percentualComissao, valorVendidoNaSemana, diaInicio, mesInicio,
-                            diaFinal, mesFinal, matricula);
-                    break;
-
-                case 3:
-                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
-
-                    double ocupacaoDaMesa = 0;
-
-                    System.out.println("Digite o número da mesa");
-                    int numeroDaMesa = scan.nextInt();
-                    System.out.println("Digite o dia de início da semana");
-                    diaInicio = scan.nextInt();
-                    System.out.println("Digite o mês de início da semana");
-                    mesInicio = scan.nextInt();
-                    System.out.println("Digite o dia de final da semana");
-                    diaFinal = scan.nextInt();
-                    System.out.println("Digite o mês de final da semana");
-                    mesFinal = scan.nextInt();
-                    System.out.println("Digite a hora de início");
-                    int horaInicio = scan.nextInt();
-                    System.out.println("Digite a hora de fim");
-                    int horaFim = scan.nextInt();
-
-                    gerente.calcularOcupacoMesas(restaurante, ocupacaoDaMesa, numeroDaMesa, diaInicio, mesInicio,
-                            diaFinal, mesFinal, horaInicio, horaFim);
-                    break;
-
-                case 4:
-                    System.out.println(" ..... Lista Garçons ..... ");
-                    restaurante.imprimeDadosGarcom();
-                    break;
-
-                default:
-                    System.out.println("Opção inválida!");
-            }
-        }
-    }
-
-    public static void menuProprietario() {
-        int opcao = 1;
-        Scanner scan = new Scanner(System.in);
-
-        Gerente gerente = new Gerente();
-        Proprietario proprietario = new Proprietario();
-
-        while (opcao != 0) {
-
-            System.out.println(" ----- MENU PROPRIETÁRIO ----- ");
-            System.out.println("Escolha a opção desejada");
-            System.out.println("1. Cadastrar garçom");
-            System.out.println("2. Calcular comissão");
-            System.out.println("3. Ocupação das mesas");
-            System.out.println("4. Imprimir lista de garçons");
-            System.out.println("5. Cadastrar gerente");
-            System.out.println("6. Imprimir lista de gerentes");
+            System.out.println("5. Imprimir lista de mesas com conta abertas");
             System.out.println("0. Sair");
 
             opcao = scan.nextInt();
@@ -370,6 +268,120 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 5:
+                    System.out.println(" ..... Lista Mesas ..... ");
+                    restaurante.imprimeContasAbertas();
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        }
+    }
+
+    public static void menuProprietario() {
+        int opcao = 1;
+        Scanner scan = new Scanner(System.in);
+
+        Gerente gerente = new Gerente();
+        Proprietario proprietario = new Proprietario();
+
+        while (opcao != 0) {
+
+            System.out.println(" ----- MENU PROPRIETÁRIO ----- ");
+            System.out.println("Escolha a opção desejada");
+            System.out.println("1. Cadastrar garçom");
+            System.out.println("2. Calcular comissão");
+            System.out.println("3. Ocupação das mesas");
+            System.out.println("4. Imprimir lista de garçons");
+            System.out.println("5. Imprimir lista de mesas com conta abertas");
+            System.out.println("6. Cadastrar gerente");
+            System.out.println("7. Imprimir lista de gerentes");
+            System.out.println("0. Sair");
+
+            opcao = scan.nextInt();
+
+            switch (opcao) {
+
+                case 0:
+                    System.out.println("Saindo.........");
+                    break;
+
+                case 1:
+                    System.out.println(" ..... Cadastrar Garçom ..... ");
+                    System.out.println("Digite o nome do garçom: ");
+                    String nome = scan.nextLine();
+                    System.out.println("Digite o endereco: ");
+                    String endereco = scan.nextLine();
+                    System.out.println("Digite o telefone: ");
+                    String telefone = scan.nextLine();
+                    System.out.println("Digite a identidade: ");
+                    int identidade = scan.nextInt();
+                    System.out.println("Digite a matricula: ");
+                    int matricula = scan.nextInt();
+
+                    Garcom novoGarcom = gerente.cadastrarGarcom(nome, endereco, telefone, identidade, matricula);
+                    restaurante.adicionarGarcom(novoGarcom);
+                    break;
+
+                case 2:
+                    System.out.println(" ..... Calcular Comissão ..... ");
+
+                    double percentualComissao;
+                    double valorVendidoNaSemana = 0;
+
+                    System.out.println("Digite o dia de início da semana");
+                    int diaInicio = scan.nextInt();
+                    System.out.println("Digite o mês de início da semana");
+                    int mesInicio = scan.nextInt();
+                    System.out.println("Digite o dia de final da semana");
+                    int diaFinal = scan.nextInt();
+                    System.out.println("Digite o mês de final da semana");
+                    int mesFinal = scan.nextInt();
+
+                    System.out.println("Digite o valor do percentual da comissão dessa semana.");
+                    percentualComissao = scan.nextDouble();
+                    System.out.println("Digite a matricula do garcom");
+                    matricula = scan.nextInt();
+
+                    gerente.calcularComissao(restaurante, percentualComissao, valorVendidoNaSemana, diaInicio, mesInicio,
+                            diaFinal, mesFinal, matricula);
+                    break;
+
+                case 3:
+                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
+
+                    double ocupacaoDaMesa = 0;
+
+                    System.out.println("Digite o número da mesa");
+                    int numeroDaMesa = scan.nextInt();
+                    System.out.println("Digite o dia de início da semana");
+                    diaInicio = scan.nextInt();
+                    System.out.println("Digite o mês de início da semana");
+                    mesInicio = scan.nextInt();
+                    System.out.println("Digite o dia de final da semana");
+                    diaFinal = scan.nextInt();
+                    System.out.println("Digite o mês de final da semana");
+                    mesFinal = scan.nextInt();
+                    System.out.println("Digite a hora de início");
+                    int horaInicio = scan.nextInt();
+                    System.out.println("Digite a hora de fim");
+                    int horaFim = scan.nextInt();
+
+                    gerente.calcularOcupacoMesas(restaurante, ocupacaoDaMesa, numeroDaMesa, diaInicio, mesInicio,
+                            diaFinal, mesFinal, horaInicio, horaFim);
+                    break;
+
+                case 4:
+                    System.out.println(" ..... Lista Garçons ..... ");
+                    restaurante.imprimeDadosGarcom();
+                    break;
+
+                case 5:
+                    System.out.println(" ..... Lista Mesas ..... ");
+                    restaurante.imprimeContasAbertas();
+                    break;
+
+                case 6:
                     System.out.println(" ..... Cadastrar Gerente ..... ");
                     System.out.println("Digite o nome do gerente: ");
                     nome = scan.nextLine();
@@ -384,7 +396,7 @@ public class AvaliacaoTecnicaPOO {
                     restaurante.adicionarGerente(novoGerente);
                     break;
 
-                case 6:
+                case 7:
                     System.out.println(" ..... Lista Gerente ..... ");
                     restaurante.imprimeDadosGerente();
                     break;

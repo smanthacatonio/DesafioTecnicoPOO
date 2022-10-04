@@ -56,7 +56,7 @@ public class Garcom extends Funcionario {
                 }
 
                 //ainda não existe esse item na conta
-                Produto produto = buscarProduto(codigo, restaurante.getProdutos());
+                Produto produto = buscarProduto(restaurante, codigo);
                 if (produto != null) {
                     ItemDaConta itemDaConta = new ItemDaConta(produto, quantidade);
                     restaurante.getContas().get(i).adicionarItemDaConta(itemDaConta);
@@ -93,11 +93,11 @@ public class Garcom extends Funcionario {
 
                     System.out.println("A conta foi cancelada com sucesso.");
                     return;
-                }else {
+                } else {
                     System.out.println("Já existe pedido lançado. Não é possível cancelar a conta.");
                     return;
                 }
-            }else {
+            } else {
                 System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
                 return;
             }
@@ -130,5 +130,6 @@ public class Garcom extends Funcionario {
         }
         System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
     }
+
 
 }

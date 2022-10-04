@@ -2,7 +2,6 @@ package desafiotecnicopoo;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 public class Gerente extends Funcionario {
 

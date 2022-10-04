@@ -64,11 +64,21 @@ public class Restaurante {
     }
 
     public void imprimeDadosGarcom() {
-
         for (int i = 0; i < garcons.size(); i++) {
             System.out.println("Nome: " + garcons.get(i).getNome() + ";  Endereço: " + garcons.get(i).getEndereco() +
                     "; Telefone: " + garcons.get(i).getTelefone() + "; Identidade: " + garcons.get(i).getIdentidade() +
                     "; Matrícula: " + garcons.get(i).getMatricula());
+        }
+    }
+
+    public void adicionarGerente (Gerente gerente) {
+        gerentes.add(gerente);
+    }
+
+    public void imprimeDadosGerente() {
+        for (int i = 0; i < gerentes.size(); i++) {
+            System.out.println("Nome: " + gerentes.get(i).getNome() + ";  Endereço: " + gerentes.get(i).getEndereco() +
+                    "; Telefone: " + gerentes.get(i).getTelefone() + "; CPF: " + gerentes.get(i).getCpf());
         }
     }
 

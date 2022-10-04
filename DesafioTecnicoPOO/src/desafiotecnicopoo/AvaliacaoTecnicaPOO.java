@@ -264,7 +264,6 @@ public class AvaliacaoTecnicaPOO {
                 case 4:
                     System.out.println(" ..... Lista Garçons ..... ");
                     restaurante.imprimeDadosGarcom();
-
                     break;
 
                 default:
@@ -278,6 +277,7 @@ public class AvaliacaoTecnicaPOO {
         Scanner scan = new Scanner(System.in);
 
         Gerente gerente = new Gerente();
+        Proprietario proprietario = new Proprietario();
 
         while (opcao != 0) {
 
@@ -295,39 +295,99 @@ public class AvaliacaoTecnicaPOO {
 
             switch (opcao) {
 
-//                case 0:
-//                    System.out.println("Saindo.........");
-//                    break;
-//
-//                case 1:
-//                    System.out.println(" ..... Cadastrar Garçom ..... ");
-////                    gerente.cadastrarGarcom(garcons);
-//                    break;
-//
-//                case 2:
-//                    System.out.println(" ..... Calcular Comissão ..... ");
-//                    gerente.calcularComissao(contas);
-//                    break;
-//
-//                case 3:
-//                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
-//                    gerente.calcularOcupacoMesas(contas);
-//                    break;
-//
-//                case 4:
-//                    System.out.println(" ..... Lista Garçons ..... ");
-//                    gerente.imprimeDadosGarcom(garcons);
-//                    break;
-//
-//                case 5:
-//                    System.out.println(" ..... Cadastrar Gerente ..... ");
-//                    proprietario.cadastrarGerente(gerentes);
-//                    break;
-//
-//                case 6:
-//                    System.out.println(" ..... Lista Gerente ..... ");
-//                    proprietario.imprimeDadosGerente(gerentes);
-//                    break;
+                case 0:
+                    System.out.println("Saindo.........");
+                    break;
+
+                case 1:
+                    System.out.println(" ..... Cadastrar Garçom ..... ");
+                    System.out.println("Digite o nome do garçom: ");
+                    String nome = scan.nextLine();
+                    System.out.println("Digite o endereco: ");
+                    String endereco = scan.nextLine();
+                    System.out.println("Digite o telefone: ");
+                    String telefone = scan.nextLine();
+                    System.out.println("Digite a identidade: ");
+                    int identidade = scan.nextInt();
+                    System.out.println("Digite a matricula: ");
+                    int matricula = scan.nextInt();
+
+                    Garcom novoGarcom = gerente.cadastrarGarcom(nome, endereco, telefone, identidade, matricula);
+                    restaurante.adicionarGarcom(novoGarcom);
+                    break;
+
+                case 2:
+                    System.out.println(" ..... Calcular Comissão ..... ");
+
+                    double percentualComissao;
+                    double valorVendidoNaSemana = 0;
+
+                    System.out.println("Digite o dia de início da semana");
+                    int diaInicio = scan.nextInt();
+                    System.out.println("Digite o mês de início da semana");
+                    int mesInicio = scan.nextInt();
+                    System.out.println("Digite o dia de final da semana");
+                    int diaFinal = scan.nextInt();
+                    System.out.println("Digite o mês de final da semana");
+                    int mesFinal = scan.nextInt();
+
+                    System.out.println("Digite o valor do percentual da comissão dessa semana.");
+                    percentualComissao = scan.nextDouble();
+                    System.out.println("Digite a matricula do garcom");
+                    matricula = scan.nextInt();
+
+                    gerente.calcularComissao(restaurante, percentualComissao, valorVendidoNaSemana, diaInicio, mesInicio,
+                            diaFinal, mesFinal, matricula);
+                    break;
+
+                case 3:
+                    System.out.println(" ..... Calcular Ocupação das Mesas ..... ");
+
+                    double ocupacaoDaMesa = 0;
+
+                    System.out.println("Digite o número da mesa");
+                    int numeroDaMesa = scan.nextInt();
+                    System.out.println("Digite o dia de início da semana");
+                    diaInicio = scan.nextInt();
+                    System.out.println("Digite o mês de início da semana");
+                    mesInicio = scan.nextInt();
+                    System.out.println("Digite o dia de final da semana");
+                    diaFinal = scan.nextInt();
+                    System.out.println("Digite o mês de final da semana");
+                    mesFinal = scan.nextInt();
+                    System.out.println("Digite a hora de início");
+                    int horaInicio = scan.nextInt();
+                    System.out.println("Digite a hora de fim");
+                    int horaFim = scan.nextInt();
+
+                    gerente.calcularOcupacoMesas(restaurante, ocupacaoDaMesa, numeroDaMesa, diaInicio, mesInicio,
+                            diaFinal, mesFinal, horaInicio, horaFim);
+                    break;
+
+                case 4:
+                    System.out.println(" ..... Lista Garçons ..... ");
+                    restaurante.imprimeDadosGarcom();
+                    break;
+
+                case 5:
+                    System.out.println(" ..... Cadastrar Gerente ..... ");
+                    System.out.println("Digite o nome do gerente: ");
+                    nome = scan.nextLine();
+                    System.out.println("Digite o endereco: ");
+                    endereco = scan.nextLine();
+                    System.out.println("Digite o telefone: ");
+                    telefone = scan.nextLine();
+                    System.out.println("Digite o CPF: ");
+                    int cpf = scan.nextInt();
+
+                    Gerente novoGerente = proprietario.cadastrarGerente(nome, endereco, telefone, cpf);
+                    restaurante.adicionarGerente(novoGerente);
+                    break;
+
+                case 6:
+                    System.out.println(" ..... Lista Gerente ..... ");
+                    restaurante.imprimeDadosGerente();
+                    break;
 
                 default:
                     System.out.println("Opção inválida!");

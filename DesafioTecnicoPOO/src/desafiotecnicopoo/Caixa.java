@@ -1,7 +1,5 @@
 package desafiotecnicopoo;
 
-import java.util.List;
-
 public class Caixa {
 
     public Caixa() {

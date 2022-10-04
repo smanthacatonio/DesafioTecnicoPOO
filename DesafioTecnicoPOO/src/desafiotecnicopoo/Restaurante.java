@@ -7,17 +7,24 @@ import java.util.List;
 
 public class Restaurante {
 
-    static List<Produto> produtos = new ArrayList<>();
-    static List<Garcom> garcons = new ArrayList<>();
-    static List<Gerente> gerentes = new ArrayList<>();
-    static List<Conta> contas = new ArrayList<>();
-    static Caixa caixa = new Caixa();
-    static Proprietario proprietario = new Proprietario();
+    private List<Produto> produtos;
+    private List<Garcom> garcons;
+    private List<Gerente> gerentes;
+    private List<Conta> contas;
+    private  Caixa caixa;
+    private Proprietario proprietario;
 
     public Restaurante() {
+        produtos = new ArrayList<>();
+        garcons = new ArrayList<>();
+        gerentes = new ArrayList<>();
+        contas = new ArrayList<>();
+        caixa = new Caixa();
+        proprietario = new Proprietario();
+        cargaDeDados();
     }
 
-    public void listasDeDados(){
+    public void cargaDeDados(){
 
         produtos.add(new Produto(TipoDeProduto.BEBIDAS, 5.20, 100));
         produtos.add(new Produto(TipoDeProduto.PETISCOS, 25.15, 200));
@@ -50,6 +57,10 @@ public class Restaurante {
         contas.add(new Conta(01, 01, LocalDate.of(2022, 10, 2),
                 LocalTime.of(14, 05), new ArrayList(), 25.15));
 
+    }
+
+    public void adicionarGarcom(Garcom garcom) {
+        garcons.add(garcom);
     }
 
 

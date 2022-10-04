@@ -3,37 +3,19 @@ package desafiotecnicopoo;
 import java.util.List;
 import java.util.Scanner;
 
-import static desafiotecnicopoo.Restaurante.garcons;
-import static desafiotecnicopoo.Restaurante.contas;
-import static desafiotecnicopoo.Restaurante.produtos;
-import static desafiotecnicopoo.Restaurante.caixa;
-import static desafiotecnicopoo.Restaurante.gerentes;
-import static desafiotecnicopoo.Restaurante.proprietario;
-
 
 public class AvaliacaoTecnicaPOO {
 
+    static Restaurante restaurante;
+
     public static void main(String[] args) {
+        restaurante = new Restaurante();
 
-        Restaurante restaurante = new Restaurante();
-        restaurante.listasDeDados();
-
-//        Restaurante.garcons;
-//
-//        restaurante.garcons;
-//        restaurante.contas
-//        restaurante.produtos;
-//        restaurante.caixa;
-//        restaurante.gerentes;
-//        restaurante.proprietario;
-
-
-        menuFuncao(garcons, contas, produtos, caixa, gerentes, proprietario);
+        menuFuncao();
 
     }
 
-    public static void menuFuncao(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos,
-                                  Caixa caixa, List<Gerente> gerentes, Proprietario proprietario) {
+    public static void menuFuncao() {
         int opcao = 1;
 
         while (opcao != 0) {
@@ -53,19 +35,19 @@ public class AvaliacaoTecnicaPOO {
                     break;
 
                 case 1:
-                    menuGarcom(garcons, contas, produtos);
+                    menuGarcom();
                     break;
 
                 case 2:
-                    menuCaixa(caixa, contas);
+                    menuCaixa();
                     break;
 
                 case 3:
-                    menuGerente(gerentes, garcons, contas);
+                    menuGerente();
                     break;
 
                 case 4:
-                    menuProprietario(proprietario, gerentes, garcons, contas);
+                    menuProprietario();
                     break;
 
                 default:
@@ -74,7 +56,7 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuGarcom(List<Garcom> garcons, List<Conta> contas, List<Produto> produtos) {
+    public static void menuGarcom() {
         int opcao = 1;
 
         System.out.println("Digite a matrícula: ");
@@ -182,7 +164,7 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuGerente(List<Gerente> gerentes, List<Garcom> garcons, List<Conta> contas) {
+    public static void menuGerente() {
         int opcao = 1;
         Scanner scan = new Scanner(System.in);
 
@@ -228,7 +210,8 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a matricula: ");
                     int matricula = scan.nextInt();
 
-                    gerente.cadastrarGarcom(garcons, nome, endereco, telefone, identidade, matricula);
+                    Garcom novoGarcom = gerente.cadastrarGarcom(nome, endereco, telefone, identidade, matricula);
+                    restaurante.adicionarGarcom(novoGarcom);
                     break;
 
                 case 2:

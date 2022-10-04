@@ -97,7 +97,7 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a quantidade");
                     int quantidade = scan.nextInt();
 
-                    garcom.realizarPedido(numDaMesa, codigo, quantidade);
+                    garcom.realizarPedido(restaurante, numDaMesa, codigo, quantidade);
                     break;
 
                 case 2:

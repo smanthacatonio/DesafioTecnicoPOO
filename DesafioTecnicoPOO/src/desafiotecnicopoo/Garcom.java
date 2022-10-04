@@ -36,13 +36,13 @@ public class Garcom extends Funcionario {
     }
 
     //Conta relativa à mesa
-    public void realizarPedido(List<Conta> contas, List<Produto> produtos, int numDaMesa, int codigo, int quantidade) {
+    public void realizarPedido(Restaurante restaurante, int numDaMesa, int codigo, int quantidade) {
 
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getNumeroDaMesa() == numDaMesa) {
+        for (int i = 0; i < restaurante.getContas().size(); i++) {
+            if (restaurante.getContas().get(i).getNumeroDaMesa() == numDaMesa) {
 
                 //lista de itens já existentes nessa conta
-                List<ItemDaConta> itensDaConta = contas.get(i).getItensDaConta();
+                List<ItemDaConta> itensDaConta = restaurante.getContas().get(i).getItensDaConta();
 
 
                 for (int j = 0; j < itensDaConta.size(); j++) {
@@ -50,18 +50,18 @@ public class Garcom extends Funcionario {
                         int qntAtualDoItem = itensDaConta.get(j).getQuantidade();
                         itensDaConta.get(j).setQuantidade(qntAtualDoItem + quantidade);
                         double valor = itensDaConta.get(j).getProduto().getPreco() * quantidade;
-                        contas.get(i).calcularValorConta(valor);
+                        restaurante.getContas().get(i).calcularValorConta(valor);
                         return; //sair do método
                     }
                 }
 
                 //ainda não existe esse item na conta
-                Produto produto = buscarProduto(codigo, produtos);
+                Produto produto = buscarProduto(codigo, restaurante.getProdutos());
                 if (produto != null) {
                     ItemDaConta itemDaConta = new ItemDaConta(produto, quantidade);
-                    contas.get(i).adicionarItemDaConta(itemDaConta);
+                    restaurante.getContas().get(i).adicionarItemDaConta(itemDaConta);
                     double valor = produto.getPreco() * quantidade;
-                    contas.get(i).calcularValorConta(valor);
+                    restaurante.getContas().get(i).calcularValorConta(valor);
                     return; //sair do método
                 } else {
                     System.out.println("Produto não cadastrado. Tente novamente.");

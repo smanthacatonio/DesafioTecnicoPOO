@@ -1,8 +1,6 @@
 package desafiotecnicopoo;
 
-import java.util.List;
 import java.util.Scanner;
-
 
 public class AvaliacaoTecnicaPOO {
 
@@ -65,9 +63,9 @@ public class AvaliacaoTecnicaPOO {
 
         Garcom garcom = new Garcom();
 
-        for (int i = 0; i < garcons.size(); i++) {
-            if (garcons.get(i).getMatricula() == matricula) {
-                garcom = garcons.get(i);
+        for (int i = 0; i < restaurante.getGarcons().size(); i++) {
+            if (restaurante.getGarcons().get(i).getMatricula() == matricula) {
+                garcom = restaurante.getGarcons().get(i);
             }
         }
 //        System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
@@ -99,7 +97,7 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a quantidade");
                     int quantidade = scan.nextInt();
 
-                    garcom.realizarPedido(contas, produtos, numDaMesa, codigo, quantidade);
+                    garcom.realizarPedido(numDaMesa, codigo, quantidade);
                     break;
 
                 case 2:
@@ -108,7 +106,7 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite o número da mesa:");
                     numDaMesa = scan.nextInt();
 
-                    garcom.cancelarConta(contas, numDaMesa);
+                    garcom.cancelarConta(numDaMesa);
                     break;
 
                 case 3:
@@ -118,7 +116,7 @@ public class AvaliacaoTecnicaPOO {
                     numDaMesa = scan.nextInt();
 
 
-                    garcom.fecharConta(contas, numDaMesa);
+                    garcom.fecharConta(numDaMesa);
                     break;
 
                 default:
@@ -155,7 +153,7 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a matricula do Garcom: ");
                     int matriculaDoGarcom = scan.nextInt();
 
-                    Conta novaConta = caixa.abrirConta(numeroDaMesa, matriculaDoGarcom);
+                    Conta novaConta = restaurante.getCaixa().abrirConta(numeroDaMesa, matriculaDoGarcom);
                     restaurante.adicionarConta(novaConta);
                     break;
 
@@ -174,9 +172,9 @@ public class AvaliacaoTecnicaPOO {
 
         Gerente gerente = new Gerente();
 
-        for (int i = 0; i < gerentes.size(); i++) {
-            if (gerentes.get(i).getCpf() == cpf) {
-                gerente = gerentes.get(i);
+        for (int i = 0; i < restaurante.getGerentes().size(); i++) {
+            if (restaurante.getGerentes().get(i).getCpf() == cpf) {
+                gerente = restaurante.getGerentes().get(i);
             }
         }
 
@@ -235,7 +233,7 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a matricula do garcom");
                     matricula = scan.nextInt();
 
-                    gerente.calcularComissao(contas, percentualComissao, valorVendidoNaSemana, diaInicio, mesInicio,
+                    gerente.calcularComissao(restaurante, percentualComissao, valorVendidoNaSemana, diaInicio, mesInicio,
                             diaFinal, mesFinal, matricula);
                     break;
 
@@ -259,13 +257,13 @@ public class AvaliacaoTecnicaPOO {
                     System.out.println("Digite a hora de fim");
                     int horaFim = scan.nextInt();
 
-                    gerente.calcularOcupacoMesas(contas, ocupacaoDaMesa, numeroDaMesa, diaInicio, mesInicio,
+                    gerente.calcularOcupacoMesas(restaurante, ocupacaoDaMesa, numeroDaMesa, diaInicio, mesInicio,
                             diaFinal, mesFinal, horaInicio, horaFim);
                     break;
 
                 case 4:
                     System.out.println(" ..... Lista Garçons ..... ");
-                    gerente.imprimeDadosGarcom(garcons);
+                    restaurante.imprimeDadosGarcom();
 
                     break;
 
@@ -275,7 +273,7 @@ public class AvaliacaoTecnicaPOO {
         }
     }
 
-    public static void menuProprietario(Proprietario proprietario, List<Gerente> gerentes, List<Garcom> garcons, List<Conta> contas) {
+    public static void menuProprietario() {
         int opcao = 1;
         Scanner scan = new Scanner(System.in);
 

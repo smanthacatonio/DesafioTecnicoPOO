@@ -63,8 +63,64 @@ public class Restaurante {
         garcons.add(garcom);
     }
 
+    public void imprimeDadosGarcom() {
+
+        for (int i = 0; i < garcons.size(); i++) {
+            System.out.println("Nome: " + garcons.get(i).getNome() + ";  Endereço: " + garcons.get(i).getEndereco() +
+                    "; Telefone: " + garcons.get(i).getTelefone() + "; Identidade: " + garcons.get(i).getIdentidade() +
+                    "; Matrícula: " + garcons.get(i).getMatricula());
+        }
+    }
+
     public void adicionarConta(Conta conta) {
         contas.add(conta);
     }
 
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public List<Garcom> getGarcons() {
+        return garcons;
+    }
+
+    public void setGarcons(List<Garcom> garcons) {
+        this.garcons = garcons;
+    }
+
+    public List<Gerente> getGerentes() {
+        return gerentes;
+    }
+
+    public void setGerentes(List<Gerente> gerentes) {
+        this.gerentes = gerentes;
+    }
+
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }
+
+    public Caixa getCaixa() {
+        return caixa;
+    }
+
+    public void setCaixa(Caixa caixa) {
+        this.caixa = caixa;
+    }
+
+    public Proprietario getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Proprietario proprietario) {
+        this.proprietario = proprietario;
+    }
 }

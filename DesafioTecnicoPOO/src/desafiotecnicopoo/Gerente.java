@@ -30,26 +30,26 @@ public class Gerente extends Funcionario {
         return garcom;
     }
 
-    public void imprimeDadosGarcom(List<Garcom> garcons) {
+//    public void imprimeDadosGarcom(List<Garcom> garcons) {
+//
+//        for (int i = 0; i < garcons.size(); i++) {
+//            System.out.println("Nome: " + garcons.get(i).getNome() + ";  Endereço: " + garcons.get(i).getEndereco() +
+//                    "; Telefone: " + garcons.get(i).getTelefone() + "; Identidade: " + garcons.get(i).getIdentidade() +
+//                    "; Matrícula: " + garcons.get(i).getMatricula());
+//        }
+//    }
 
-        for (int i = 0; i < garcons.size(); i++) {
-            System.out.println("Nome: " + garcons.get(i).getNome() + ";  Endereço: " + garcons.get(i).getEndereco() +
-                    "; Telefone: " + garcons.get(i).getTelefone() + "; Identidade: " + garcons.get(i).getIdentidade() +
-                    "; Matrícula: " + garcons.get(i).getMatricula());
-        }
-    }
-
-    public void calcularComissao(List<Conta> contas, double percentualComissao, double valorVendidoNaSemana, int diaInicio,
+    public void calcularComissao(Restaurante restaurante, double percentualComissao, double valorVendidoNaSemana, int diaInicio,
                                  int mesInicio, int diaFinal, int mesFinal, int matricula) {
 
         LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
         LocalDate dataFinal = LocalDate.of(2022, mesFinal, diaFinal);
 
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getMatriculaDoGarcom() == matricula
-                    && contas.get(i).getData().isAfter(dataInicial)
-                    && contas.get(i).getData().isBefore(dataFinal)) {
-                valorVendidoNaSemana = valorVendidoNaSemana + contas.get(i).getValorConta();
+        for (int i = 0; i < restaurante.getContas().size(); i++) {
+            if (restaurante.getContas().get(i).getMatriculaDoGarcom() == matricula
+                    && restaurante.getContas().get(i).getData().isAfter(dataInicial)
+                    && restaurante.getContas().get(i).getData().isBefore(dataFinal)) {
+                valorVendidoNaSemana = valorVendidoNaSemana + restaurante.getContas().get(i).getValorConta();
             }
         }
         double comissao = valorVendidoNaSemana * percentualComissao / 100;
@@ -57,7 +57,7 @@ public class Gerente extends Funcionario {
 
     }
 
-    public void calcularOcupacoMesas(List<Conta> contas, double ocupacaoDaMesa, int numeroDaMesa, int diaInicio, int mesInicio,
+    public void calcularOcupacoMesas(Restaurante restaurante, double ocupacaoDaMesa, int numeroDaMesa, int diaInicio, int mesInicio,
                                      int diaFinal, int mesFinal, int horaInicio, int horaFim) {
 
         LocalDate dataInicial = LocalDate.of(2022, mesInicio, diaInicio);
@@ -65,12 +65,12 @@ public class Gerente extends Funcionario {
         LocalTime horaInicial = LocalTime.of(horaInicio, 00);
         LocalTime horaFinal = LocalTime.of(horaFim, 00);
 
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getNumeroDaMesa() == numeroDaMesa
-                    && contas.get(i).getData().isAfter(dataInicial)
-                    && contas.get(i).getData().isBefore(dataFinal)
-                    && contas.get(i).getHora().isAfter(horaInicial)
-                    && contas.get(i).getHora().isBefore(horaFinal)) {
+        for (int i = 0; i < restaurante.getContas().size(); i++) {
+            if (restaurante.getContas().get(i).getNumeroDaMesa() == numeroDaMesa
+                    && restaurante.getContas().get(i).getData().isAfter(dataInicial)
+                    && restaurante.getContas().get(i).getData().isBefore(dataFinal)
+                    && restaurante.getContas().get(i).getHora().isAfter(horaInicial)
+                    && restaurante.getContas().get(i).getHora().isBefore(horaFinal)) {
                 ocupacaoDaMesa++;
             }
         }

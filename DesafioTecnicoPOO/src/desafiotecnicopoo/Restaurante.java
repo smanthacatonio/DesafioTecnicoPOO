@@ -11,7 +11,7 @@ public class Restaurante {
     private List<Garcom> garcons;
     private List<Gerente> gerentes;
     private List<Conta> contas;
-    private  Caixa caixa;
+    private Caixa caixa;
     private Proprietario proprietario;
 
     public Restaurante() {
@@ -24,7 +24,7 @@ public class Restaurante {
         cargaDeDados();
     }
 
-    public void cargaDeDados(){
+    public void cargaDeDados() {
 
         produtos.add(new Produto(TipoDeProduto.BEBIDAS, 5.20, 100));
         produtos.add(new Produto(TipoDeProduto.PETISCOS, 25.15, 200));
@@ -39,7 +39,7 @@ public class Restaurante {
 
         gerentes.add(new Gerente("joao", "rua tal", "98564", 123456789));
 
-        contas.add(new Conta(03, 01,LocalDate.of(2022, 9, 19),
+        contas.add(new Conta(03, 01, LocalDate.of(2022, 9, 19),
                 LocalTime.of(12, 00), new ArrayList(), 15));
         contas.add(new Conta(01, 01, LocalDate.of(2022, 9, 20),
                 LocalTime.of(13, 55), new ArrayList(), 5.20));
@@ -71,7 +71,7 @@ public class Restaurante {
         }
     }
 
-    public void adicionarGerente (Gerente gerente) {
+    public void adicionarGerente(Gerente gerente) {
         gerentes.add(gerente);
     }
 

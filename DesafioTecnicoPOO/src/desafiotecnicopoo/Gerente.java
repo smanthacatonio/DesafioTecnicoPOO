@@ -29,15 +29,6 @@ public class Gerente extends Funcionario {
         return garcom;
     }
 
-//    public void imprimeDadosGarcom(List<Garcom> garcons) {
-//
-//        for (int i = 0; i < garcons.size(); i++) {
-//            System.out.println("Nome: " + garcons.get(i).getNome() + ";  Endereço: " + garcons.get(i).getEndereco() +
-//                    "; Telefone: " + garcons.get(i).getTelefone() + "; Identidade: " + garcons.get(i).getIdentidade() +
-//                    "; Matrícula: " + garcons.get(i).getMatricula());
-//        }
-//    }
-
     public void calcularComissao(Restaurante restaurante, double percentualComissao, double valorVendidoNaSemana, int diaInicio,
                                  int mesInicio, int diaFinal, int mesFinal, int matricula) {
 

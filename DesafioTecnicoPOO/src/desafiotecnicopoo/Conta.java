@@ -27,7 +27,7 @@ public class Conta {
         this.valorConta = valorConta;
     }
 
-    public Conta (int numeroDaMesa, int matriculaDoGarcom) {
+    public Conta(int numeroDaMesa, int matriculaDoGarcom) {
         this.numeroDaMesa = numeroDaMesa;
         this.matriculaDoGarcom = matriculaDoGarcom;
     }

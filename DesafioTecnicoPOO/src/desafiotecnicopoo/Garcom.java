@@ -98,10 +98,6 @@ public class Garcom extends Funcionario {
                     return;
                 }
             }
-//            else {
-//                System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
-//                return;
-//            }
         }
         System.out.println("Mesa não está com conta aberta. Favor digitar número da mesa novamente");
     }

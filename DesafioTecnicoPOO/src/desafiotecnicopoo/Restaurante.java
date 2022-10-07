@@ -71,6 +71,7 @@ public class Restaurante {
         }
     }
 
+
     public void adicionarGerente(Gerente gerente) {
         gerentes.add(gerente);
     }
@@ -81,6 +82,28 @@ public class Restaurante {
                     "; Telefone: " + gerentes.get(i).getTelefone() + "; CPF: " + gerentes.get(i).getCpf());
         }
     }
+
+    public boolean encontraGerente(int cpf){
+
+        for (int i = 0; i < getGerentes().size(); i++) {
+            if (getGerentes().get(i).getCpf() == cpf) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+//    public Gerente encontraGerente(Gerente gerente, int cpf){
+//
+//        for (int i = 0; i < getGerentes().size(); i++) {
+//            if (getGerentes().get(i).getCpf() == cpf) {
+//                gerente = getGerentes().get(i);
+//            } else {
+//                System.out.println("CPF não encontrado, favor tentar novamente.");
+//            }
+//        }
+//        return gerente;
+//    }
 
     public void adicionarConta(Conta conta) {
         contas.add(conta);

@@ -63,65 +63,64 @@ public class AvaliacaoTecnicaPOO {
 
         Garcom garcom = new Garcom();
 
-        for (int i = 0; i < restaurante.getGarcons().size(); i++) {
-            if (restaurante.getGarcons().get(i).getMatricula() == matricula) {
-                garcom = restaurante.getGarcons().get(i);
+        if(restaurante.encontraGarcom(matricula) == true) {
+            while (opcao != 0) {
+
+                System.out.println(" ----- MENU GARÇOM ----- ");
+                System.out.println("Escolha a opção desejada");
+                System.out.println("1. Realizar pedido");
+                System.out.println("2. Cancelar conta");
+                System.out.println("3. Fechar conta");
+                System.out.println("0. Logout");
+
+                opcao = scan.nextInt();
+
+                switch (opcao) {
+
+                    case 0:
+                        System.out.println("Saindo.........");
+                        break;
+
+                    case 1:
+                        System.out.println(" ..... Realizar Pedido ..... ");
+
+                        System.out.println("Digite o número da mesa:");
+                        int numDaMesa = scan.nextInt();
+                        System.out.println("Digite o Codigo do produto");
+                        int codigo = scan.nextInt();
+                        System.out.println("Digite a quantidade");
+                        int quantidade = scan.nextInt();
+
+                        garcom.realizarPedido(restaurante, numDaMesa, codigo, quantidade);
+                        break;
+
+                    case 2:
+                        System.out.println(" ..... Cancelar Conta ..... ");
+
+                        System.out.println("Digite o número da mesa:");
+                        numDaMesa = scan.nextInt();
+
+                        garcom.cancelarConta(restaurante, numDaMesa);
+                        break;
+
+                    case 3:
+                        System.out.println(" ..... Fechar Conta ..... ");
+
+                        System.out.println("Digite o número da mesa:");
+                        numDaMesa = scan.nextInt();
+
+
+                        garcom.fecharConta(restaurante, numDaMesa);
+                        break;
+
+                    default:
+                        System.out.println("Opção inválida!");
+                }
             }
         }
-//        System.out.println("Matrícula não cadastrada. Favor digitar sua matrícula corretamente.");
-
-        while (opcao != 0) {
-
-            System.out.println(" ----- MENU GARÇOM ----- ");
-            System.out.println("Escolha a opção desejada");
-            System.out.println("1. Realizar pedido");
-            System.out.println("2. Cancelar conta");
-            System.out.println("3. Fechar conta");
-            System.out.println("0. Logout");
-
-            opcao = scan.nextInt();
-
-            switch (opcao) {
-
-                case 0:
-                    System.out.println("Saindo.........");
-                    break;
-
-                case 1:
-                    System.out.println(" ..... Realizar Pedido ..... ");
-
-                    System.out.println("Digite o número da mesa:");
-                    int numDaMesa = scan.nextInt();
-                    System.out.println("Digite o Codigo do produto");
-                    int codigo = scan.nextInt();
-                    System.out.println("Digite a quantidade");
-                    int quantidade = scan.nextInt();
-
-                    garcom.realizarPedido(restaurante, numDaMesa, codigo, quantidade);
-                    break;
-
-                case 2:
-                    System.out.println(" ..... Cancelar Conta ..... ");
-
-                    System.out.println("Digite o número da mesa:");
-                    numDaMesa = scan.nextInt();
-
-                    garcom.cancelarConta(restaurante, numDaMesa);
-                    break;
-
-                case 3:
-                    System.out.println(" ..... Fechar Conta ..... ");
-
-                    System.out.println("Digite o número da mesa:");
-                    numDaMesa = scan.nextInt();
-
-
-                    garcom.fecharConta(restaurante, numDaMesa);
-                    break;
-
-                default:
-                    System.out.println("Opção inválida!");
-            }
+        else {
+            System.out.println("Matricula não encontrada, favor tentar novamente.");
+            menuFuncao();
         }
     }
 
@@ -171,8 +170,6 @@ public class AvaliacaoTecnicaPOO {
         int cpf = scan.nextInt();
 
         Gerente gerente = new Gerente();
-
-//        restaurante.encontraGerente(gerente, cpf);
 
         if(restaurante.encontraGerente(cpf) == true) {
 
@@ -277,7 +274,7 @@ public class AvaliacaoTecnicaPOO {
             }
         } else {
             System.out.println("CPF não encontrado, favor tentar novamente.");
-            menuGerente();
+            menuFuncao();
         }
     }
 
